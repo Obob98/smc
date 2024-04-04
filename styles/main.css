@@ -296,7 +296,45 @@ main section.about .or > div p{
     font-weight: bold;
 }
 
-main section.about .or {}
+main section.about .video{
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main section.about .video .typography {
+    position: absolute;
+    width: fit-content;
+    z-index: 0;
+}
+
+main section.about .video .typography p{
+    text-wrap: nowrap;
+    font-size: 96px;
+    font-weight: 600;
+    color: transparent;
+}
+
+main section.about .video .typography p:nth-child(1){
+    -webkit-text-stroke: 1px #F05A28;
+}
+
+main section.about .video .typography p:nth-child(2){
+    -webkit-text-stroke: 1px #CFD213;
+    padding: 80px;
+}
+
+main section.about .video .typography p:nth-child(3){
+    -webkit-text-stroke: 1px #FD002E;
+}
+
+main section.about .video .vid{
+    z-index: 10;
+}
 
 @media (prefers-color-scheme: light) {
 
