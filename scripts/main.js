@@ -1,3 +1,8 @@
+const setDarkmode = () => {
+
+
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     initApp()
 })
@@ -5,3 +10,4 @@ window.addEventListener('DOMContentLoaded', () => {
 function initApp() {
 
 }
+
