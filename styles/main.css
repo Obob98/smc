@@ -48,6 +48,7 @@ html, body{
     min-height: 100vh;
     overflow-x: hidden;
     background: var(--color-bg-base);
+    color: var(--color-txt-base);
 }
 
 /* constants */
@@ -185,10 +186,16 @@ header .hero .hero-content .floater .themes{
     /* gap: 2px; */
 }
 
-header .hero .hero-content .themes > button{
-    background: none;
+header .hero .hero-content .themes > p{
     color: #fff;
     background: #ffffff10;
+    padding: 12px;
+}
+
+header .hero .hero-content .themes > button{
+    color: #fff;
+    background: none;
+    width: 100%;
     padding: 12px;
 }
 
@@ -275,17 +282,53 @@ main section.about .or{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 16px;
 }
 
+main section.about .or > img {
+    z-index: 10;
+}
+
 main section.about .or > div{
-    padding: 64px 32px;
-    border: 10px solid var(--color-primary);
+    /* padding: 64px 32px; */
+    /* border: 10px solid var(--color-primary); */
     
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+}
+
+main section.about .or > div:nth-child(2){
+    padding: 64px 32px;
+    border: 10px solid #FD002E90;
+    z-index: 10;
+}
+
+main section.about .or .circ{
+    position: absolute;
+    z-index: 0;
+}
+
+main section.about .or .circ div > div > div{
+    aspect-ratio: 2/3;
+    width: 400px;
+    border: 60px solid #FD002E50;
+}
+
+main section.about .or .circ div > div {
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    border: 60px solid #FD002E30;
+}
+
+main section.about .or .circ div {
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    border: 60px solid #FD002E10;
 }
 
 main section.about .or > div p{
@@ -299,6 +342,7 @@ main section.about .or > div p{
 main section.about .video{
     width: 100%;
     position: relative;
+    padding-top: 50px;
 
     display: flex;
     align-items: center;
