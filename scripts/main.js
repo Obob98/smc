@@ -32,6 +32,34 @@ window.addEventListener('DOMContentLoaded', () => {
     initApp()
 })
 
+let checkHeader = true
+
+window.addEventListener('scroll', e => {
+    themeDiv = themeToggle.parentNode.parentNode
+    header = document.querySelector('header')
+    headerPosition = header.getBoundingClientRect().bottom
+
+
+    if (headerPosition < 0) {
+        console.log('setting themer position')
+        console.log(themeDiv)
+        if (checkHeader) {
+            console.log('setting success')
+            themeDiv.classList.add('fixed')
+            themeDiv.style.top = '16px'
+            themeDiv.style.bottom = 'unset'
+        }
+        checkHeader = false
+    }
+    else {
+        console.log('unsetting success')
+        themeDiv.classList.remove('fixed')
+        themeDiv.style.top = 'unset'
+        themeDiv.style.bottom = '16px'
+        checkHeader = true
+    }
+})
+
 function initApp() {
 
 }

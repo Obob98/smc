@@ -10,6 +10,7 @@
     padding: 0;
     font-family: "lato";
     box-sizing: border-box;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 :root{
@@ -18,10 +19,10 @@
 
     color-scheme: light dark;
     
-    --color-bg-base: #000;
-    --color-bg-sec: #11051C;
+    --color-bg-base: #0a0e14;
+    --color-bg-sec: #1E293B; /* #11051C */
     --color-txt-base: #fff;
-    --color-primary: #FD002E;
+    --color-primary: #FD002E; /* #FD002E */
     --color-secondary: #F9CF64;
 
     /* --size-xsmall: 4px; */
@@ -41,6 +42,17 @@ button{
     border-radius: 9999px;
     text-transform: capitalize;
     width: fit-content;
+    height: fit-content;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 html, body{
@@ -68,6 +80,12 @@ h2{
 p{
     line-height: 160%;
     font-weight: normal;
+}
+
+.logo{
+    color: var(--color-primary);
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .container{
@@ -139,12 +157,6 @@ header .hero .hero-content{
 
 /*  */
 
-header .hero nav .logo{
-    color: #FD002E;
-    font-size: 32px;
-    font-weight: bold;
-}
-
 header .hero nav ul{
     padding: 16px 32px;
 
@@ -166,10 +178,16 @@ header .hero .hero-content .floater{
     position: absolute;
     bottom: 16px;
     right: 16px;
+    z-index: 9999;
 
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+
+header .hero .hero-content .floater.fixed{
+    position: fixed;
+    top: 32px;
 }
 
 header .hero .hero-content .floater input{
@@ -180,7 +198,7 @@ header .hero .hero-content .floater input{
 }
 header .hero .hero-content .floater .themes{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     overflow: hidden;
     /* gap: 2px; */
@@ -226,6 +244,10 @@ main{
 }
 
 /* subsections */
+
+main > section{
+    padding-bottom: 160px;
+}
 
 /* about section */
 
@@ -300,9 +322,9 @@ main section.about .or > div{
     gap: 12px;
 }
 
-main section.about .or > div:nth-child(2){
+main section.about .or .or-div{
     padding: 64px 32px;
-    border: 10px solid #FD002E90;
+    /* border: 10px solid #FD002E90; */
     z-index: 10;
 }
 
@@ -314,21 +336,21 @@ main section.about .or .circ{
 main section.about .or .circ div > div > div{
     aspect-ratio: 2/3;
     width: 400px;
-    border: 60px solid #FD002E50;
+    border: 10px solid #FD002E50;
 }
 
 main section.about .or .circ div > div {
     width: fit-content;
     height: fit-content;
     padding: 50px;
-    border: 60px solid #FD002E30;
+    border: 10px solid #FD002E30;
 }
 
 main section.about .or .circ div {
     width: fit-content;
     height: fit-content;
     padding: 50px;
-    border: 60px solid #FD002E10;
+    border: 10px solid #FD002E10;
 }
 
 main section.about .or > div p{
@@ -342,6 +364,7 @@ main section.about .or > div p{
 main section.about .video{
     width: 100%;
     position: relative;
+    /* padding: 0px 200px; */
     padding-top: 50px;
 
     display: flex;
@@ -369,7 +392,7 @@ main section.about .video .typography p:nth-child(1){
 
 main section.about .video .typography p:nth-child(2){
     -webkit-text-stroke: 1px #CFD213;
-    padding: 80px;
+    padding: 30px;
 }
 
 main section.about .video .typography p:nth-child(3){
@@ -377,7 +400,415 @@ main section.about .video .typography p:nth-child(3){
 }
 
 main section.about .video .vid{
+    /* max-width: 800px; */
+    aspect-ratio: 6/3;
     z-index: 10;
+}
+
+main section.why-us{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-bg-base), var(--color-bg-sec));
+}
+
+main section.why-us .container{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+main section.why-us .container .content {
+    display: flex;
+    flex-direction: column;
+    gap: 128px;
+}
+
+main section.why-us .container .content .titles{
+    display: flex;
+    justify-content: space-between;
+    text-wrap: nowrap;
+    gap: 20%;
+}
+
+main section.why-us .container .cards{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section.why-us .container .cards .card{
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    padding: 32px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+main section.why-us .container .cards .card:nth-child(1){
+    background: #1C78E3;
+}
+
+main section.our-programs{
+    position: relative;
+    width: 100vw;
+    height: fit-content;
+    background: var(--color-bg-sec);
+}
+
+main section.our-programs .container{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+main section.our-programs .container .content{
+    width: fit-content;
+    padding: 0px 32px;
+    border-left: 1px solid #fff;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+main section.our-programs .container .content .titles{
+    width: 600px;
+}
+
+main section.our-programs .container .content .cards{
+    width: fit-content;
+}
+
+main section.our-programs .container .content .cards .card{
+    width: 400px;
+    height: fit-content;
+    padding: 32px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 12px;
+    margin-right: 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+/* our supporters */
+
+main section.our-supporters{
+    width: 100vw;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    background: var(--color-bg-sec);
+}
+
+main section.our-supporters .logos{
+    width: fit-content;
+    
+    display: flex;
+    gap: 160px;
+}
+
+main section.our-supporters .logos > div{
+    width: fit-content;
+    
+    display: flex;
+    gap: 160px;
+}
+
+
+/* feedback */
+main section.feedback{
+    width: 100vw;
+    height: fit-content;
+    background: var(--color-bg-sec);
+}
+
+main section.feedback .container{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+main section.feedback .container .cards{
+    width: fit-content;
+
+    display: flex;
+    gap: 64px;
+    align-items: flex-start;
+}
+
+main section.feedback .container .cards .card{
+    width: 600px;
+    background: var(--to-create, #0004);
+    border-radius: 12px;
+    overflow: hidden;
+    
+    display: flex;
+    gap: 32px;
+}
+
+main section.feedback .container .cards .card .img{
+    width: 150px;
+    background: #222;
+}
+
+main section.feedback .container .cards .card .typography{
+    padding: 24px;
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+main section.faq{
+    background: var(--color-bg-sec);
+}
+
+main section.faq .container{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+main section.faq .container .content{
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+main section.faq .container .content .qna{
+    max-width: 600px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+main section.faq .container .content .qna > div{
+    padding: 16px;
+    /* background:#0002; */
+}
+
+main section.faq .container .content .qna label{
+    display: flex;
+    gap: 32px;
+}
+
+main section.faq .container .content .qna label p:first-child{
+    font-weight: 500;
+    font-size: 20px;
+    flex: 1;
+}
+
+main section.faq .container .content .qna label p:last-child{
+    color: #000;
+    border-radius: 9999px;
+    background: var(--color-secondary);
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+    padding: 0;
+    font-size: 24px;
+
+    /* flex: 1; */
+    display: grid;
+    place-content: center;
+}
+
+main section.faq .container .content .qna input[type="radio"]{
+    display: none;
+}
+
+main section.faq .container .content .answer{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+main section.faq .container .content .qna input[type="radio"]:checked ~ .answer{
+    height: fit-content;
+    opacity: 1;
+}
+
+main section.faq .container .content .qna input[type="radio"]:checked ~ label p:last-child{
+    transform: rotate(45deg);
+}
+
+main section.latest-articles{
+    width: 100vw;
+    background: var(--color-bg-sec);
+}
+
+main section.latest-articles .container{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+main section.latest-articles .articles{
+    display: flex;
+    gap: 32px;
+}
+
+main section.latest-articles .articles .card{
+    flex: 1;
+}
+
+main section.latest-articles .articles .card .img{
+    aspect-ratio: 3/2;
+}
+
+main section.latest-articles .articles .card .blog-title{
+    padding: 8px 16px;
+}
+
+main section.contact{
+    width: 100vw;
+    height: fit-content;
+    background: linear-gradient(to bottom, var(--color-bg-sec), var(--color-bg-base));
+}
+
+main section.contact .container{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+main section.contact .container .content{
+    display: flex;
+    gap: 64px;
+}
+
+main section.contact .container .content .ill-3d{
+    flex: 1;
+}
+
+main section.contact .container .content form{
+    flex: 1;
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+main section.contact .container .content form label{
+    flex: 1;
+}
+
+main section.contact .container .content form label input{
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-txt-base);
+    padding: 12px 0px;
+}
+main section.contact .container .content form label input, main section.contact .container .content form label textarea{
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-txt-base);
+    padding: 12px 0px;
+}
+
+main section.contact .container .content form label input:focus{
+    padding-inline: 32px;
+}
+
+main section.contact .container .content form label textarea{
+    border: 1px solid var(--color-txt-base);
+    margin-top: 8px;
+    border-radius: 8px;
+    padding-inline: 32px;
+}
+main section.contact .container .content form .textarea{
+    grid-column: span 2;
+}
+
+/* footer */
+
+footer{
+    width: 100vw;
+    height: fit-content;
+    background: var(--color-bg-base);
+    padding-block: 64px;
+}
+
+footer .container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 64px;
+    
+}
+
+footer .container section.links{
+
+    grid-column: span 2;
+    display: flex;
+    /* gap: 64px; */
+    /* justify-content: space-between; */
+}
+
+footer .container section.links ul{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+footer .container section.links ul p:first-child{
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+footer .container section.subscribe{
+    grid-column: span 3;
+}
+
+footer .container section.subscribe form{
+    width: 100%;
+    height: fit-content;
+    margin-top: 32px;
+    overflow: hidden;
+
+    display: flex;
+    border: none;
+}
+
+footer .container section.subscribe form input{
+    border: none;
+}
+
+footer .container section.subscribe form input[type="text"] {
+    padding-left: 32px;
+    height: 70px;
+    height: 60px;
+    outline: none;
+    background: none;
+        
+    flex: 1;
+}
+
+footer .container section.subscribe form input[type="submit"]{
+    padding: unset;
+    padding-inline: 24px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+    /* background: none; */
+    
+    display: flex;
 }
 
 @media (prefers-color-scheme: light) {
