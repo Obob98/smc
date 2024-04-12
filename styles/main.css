@@ -448,22 +448,24 @@ main section.why-us .wraper .content > div {
 }
 
 main section.why-us .wraper .content .titles{
-    display: flex;
-    justify-content: space-between;
-    text-wrap: nowrap;
-    gap: 20%;
 
-    max-width: none;
+    width: 100vw;
     padding-top: 10vh;
     padding-bottom: 2.5vh;
     /* background: #fff1; */
     height: 200px;
 }
 
+main section.why-us .wraper .content .titles > h2{
+    width: 600px;
+    position: absolute;
+    left: calc(50% * var(--i));
+    transform: translate(-50%);
+    text-align: center;
+}
+
 
 main section.why-us .wraper .cards{
-    /* background: #fff3; */
-    
     display: block;
     height: 300px;
     padding-top: 20px;
