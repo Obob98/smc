@@ -93,6 +93,14 @@ p{
     /* font-size: 18px; */
 }
 
+input{
+    font-size: 1rem;
+}
+
+input::placeholder{
+    color: var(--color-text-primary);
+}
+
 .logo{
     color: var(--color-accent);
     /* color: #000; */
@@ -611,19 +619,26 @@ main section.our-supporters{
 }
 
 main section.our-supporters .logos{
-    width: fit-content;
-    
-    display: flex;
-    gap: 160px;
+    overflow: hidden;
+    padding: 60px 0;
+
+    white-space: nowrap;
 }
 
-main section.our-supporters .logos > div{
-    width: fit-content;
-    
-    display: flex;
-    gap: 160px;
+main section.our-supporters .logos:hover main section.our-supporters .logos .logos-slider{
+    animation-play-state: paused;
 }
 
+main section.our-supporters .logos .logos-slider{
+    display: inline-block;
+    animation: 32s slide linear infinite;
+}
+
+main section.our-supporters .logos .logos-slider img{
+    height: 50px;
+    width: auto;
+    margin-inline: 40px;
+}
 
 /* feedback */
 main section.feedback{
