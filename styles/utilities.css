@@ -8,6 +8,10 @@
     width: 100vw;
 }
 
+.width-hscreen{
+    width: 50vw;
+}
+
 /* fonts */
 
 .f-sbold{
@@ -19,6 +23,12 @@
 }
 
 /* position */
+
+.absolute-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 center{
     margin: auto;

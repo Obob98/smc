@@ -90,6 +90,7 @@ h2{
 p{
     line-height: 160%;
     font-weight: normal;
+    /* font-size: 18px; */
 }
 
 .logo{
@@ -159,11 +160,20 @@ header .hero nav{
     align-items: center;
 }
 
+header .hero nav .logo.fixed{
+    position: fixed;
+    top: 16px;
+    padding-inline: 24px;
+    color: var(--color-secondary);
+    z-index: 999;
+}
+
 header .hero .hero-content{
     width: 100%;
     height: 100%;
 
     display: flex;
+    /* gap: 4vmax; */
     align-items: center;
     justify-content: space-between;
 }
@@ -176,6 +186,17 @@ header .hero nav ul{
     
     display: flex;
     gap: 32px;
+}
+
+header .hero nav .socials{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+header .hero nav .socials > div{
+    width: 32px;
+    aspect-ratio: 1/1;
 }
 
 header .hero .hero-content .left{
@@ -194,8 +215,10 @@ header .hero .hero-content .floater{
     z-index: 9999;
 
     display: flex;
+    flex-direction: column;
     gap: 16px;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 header .hero .hero-content .floater.fixed{
@@ -203,12 +226,33 @@ header .hero .hero-content .floater.fixed{
     top: 32px;
 }
 
-header .hero .hero-content .floater input{
-    border: none;
+header .hero .hero-content .floater form{
+    /* position: relative; */
+    width: fit-content;
+    height: fit-content;
+}
+
+header .hero .hero-content .floater form input{
     width: 400px;
+    width: 0;
+    opacity: 0;
+    border: none;
     color: #fff;
     padding: 24px 32px;
 }
+
+header .hero .hero-content .floater form .img{
+    width: 64px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+
+    /* position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: 3; */
+}
+
 header .hero .hero-content .floater .themes{
     display: flex;
     /* flex-direction: column; */
@@ -435,6 +479,8 @@ main section.why-us .wraper{
 }
 
 main section.why-us .wraper .content {
+    padding-top: 80px;
+    
     width: 100%;
     position: -webkit-sticky;
     position: sticky;

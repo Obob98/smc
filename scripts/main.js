@@ -3,14 +3,16 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 let checkHeader = true
-let checkWhyUs = true
 
+const header = document.querySelector('header')
+const headerLogo = document.querySelector('.logo')
+
+const themeDiv = document.querySelector('.floater')
 const themeToggle = document.querySelector('.themes > button');
 const currentTheme = document.querySelector('.themes > p');
 
-const whyUsSectionDiv = document.getElementById('why-us');
-const toWhyUsButton = document.getElementById('towhyus')
-const whyUsCards = document.querySelector('main section.why-us .container .cards')
+const searchInput = document.querySelector('.floater input')
+const searchImg = document.querySelector('.floater .img')
 
 // task one
 let darkMode = true;
@@ -20,8 +22,24 @@ window.addEventListener('scroll', e => {
     positionThemeDiv(e)
 })
 
-
 themeToggle.addEventListener('click', setDarkmode);
+
+searchImg.addEventListener('click', () => {
+    themeDiv.style.flexDirection = 'row'
+    themeToggle.style.display = 'none'
+    searchInput.focus()
+    openInput()
+})
+
+searchInput.addEventListener('blur', () => {
+    const isThemeDivFixed = themeDiv.classList.contains('fixed')
+
+    if (!isThemeDivFixed) {
+        themeDiv.style.flexDirection = 'column'
+        themeToggle.style.display = 'block'
+        closeInput()
+    }
+})
 
 function setDarkmode() {
     darkMode = !darkMode;
@@ -49,62 +67,59 @@ function setDarkmode() {
 }
 
 function positionThemeDiv(e) {
-    themeDiv = themeToggle.parentNode.parentNode
-    header = document.querySelector('header')
+
     headerPosition = header.getBoundingClientRect().bottom
 
     if (headerPosition < 0) {
 
         if (checkHeader) {
+            headerLogo.classList.add('fixed')
+            headerLogo.classList.add('glass')
+
             themeDiv.classList.add('fixed')
+            themeDiv.classList.add('container')
             themeDiv.style.top = '16px'
             themeDiv.style.bottom = 'unset'
+            themeDiv.style.right = 'unset'
+            themeDiv.style.flexDirection = 'row'
+
+            searchInput.parentNode.classList.add('absolute-center')
+
+            openInput()
+
         }
         checkHeader = false
     }
     else {
+        headerLogo.classList.remove('fixed')
+        headerLogo.classList.remove('glass')
 
         themeDiv.classList.remove('fixed')
+        themeDiv.classList.remove('container')
         themeDiv.style.top = 'unset'
         themeDiv.style.bottom = '16px'
+        themeDiv.style.right = '16px'
+        themeDiv.style.flexDirection = 'column'
+
+        searchInput.parentNode.classList.remove('absolute-center')
+
+        closeInput()
+
         checkHeader = true
     }
 }
 
-function positionWhyUsDiv(e) {
-    let whyUsSectionDivCurrentPosition = whyUsSectionDiv.getBoundingClientRect().top
-
-
-
-    if (whyUsSectionDivCurrentPosition <= 0) {
-
-
-
-        // document.body.style.overflow = 'hidden'
-
-        // toWhyUsButton.click()
-
-        // if (checkHeader) {
-        // whyUsSectionDiv.classList.add('fixed')
-        // whyUsSectionDiv.style.top = '0px'
-        // themeDiv.style.bottom = 'unset'
-        // }
-        // checkHeader = false
-    }
-    else {
-
-        themeDiv.classList.remove('fixed')
-        themeDiv.style.top = 'unset'
-        themeDiv.style.bottom = '16px'
-        checkHeader = true
-    }
+function openInput() {
+    searchInput.style.width = '400px'
+    searchInput.style.opacity = '1'
+    searchImg.style.display = 'none'
 }
 
-
-
-
-
-
+function closeInput() {
+    searchInput.style.width = '0px'
+    searchInput.style.opacity = '0'
+    searchImg.style.display = 'inline-block'
+}
 
 
 function initApp() {
