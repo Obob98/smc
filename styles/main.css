@@ -550,24 +550,13 @@ main section.why-us .wraper .cards .card{
     transition: transform 100ms cubic-bezier(.215, .61, .355, 1);
 }
 
-
-/* main section.why-us .wraper .cards .card:nth-child(1){
-    background: #1C78E3;
-}
-
-main section.why-us .wraper .cards .card:nth-child(2){
-    background: var(--color-accent);
-}
-
-main section.why-us .wraper .cards .card:nth-child(3){
-    background: rgb(34, 158, 129);
-} */
-
 main section.our-programs{
     position: relative;
     width: 100vw;
     height: fit-content;
     background: var(--color-bg-secondary);
+
+    overflow-x: hidden;
 }
 
 main section.our-programs .container{
@@ -650,39 +639,102 @@ main section.feedback{
 main section.feedback .container{
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 64px;
 }
 
 main section.feedback .container .cards{
-    width: fit-content;
+    width: 1120px;
+    /* max-height: 300px; */
 
     display: flex;
-    gap: 64px;
+    flex-wrap: wrap;
+    gap: 40px;
     align-items: flex-start;
+    justify-content: center;
 }
 
 main section.feedback .container .cards .card{
-    width: 600px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 500px;
     background: var(--to-create, #0004);
     border-radius: 12px;
     overflow: hidden;
+    padding: 32px;
     
     display: flex;
-    gap: 32px;
+    gap: 16px;
+    flex-direction: column;
+    transition-property: flex;
+    transition-duration: 100ms;
 }
 
-main section.feedback .container .cards .card .img{
-    width: 150px;
-    background: #222;
+main section.feedback .container .cards .card:hover{
+    transform: scale(1.1);
+    /* box-shadow: 0 8px 32px -16px var(--color-text-primary); */
+}
+
+main section.feedback .container .cards .card .head{
+    
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+main section.feedback .container .cards .card .head figcaption{
+    flex: 1;
+}
+
+main section.feedback .container .cards .card .head figcaption small{
+    color: #aaa;
+}
+
+main section.feedback .container .cards .card .head .img{
+    width: 80px;
+    aspect-ratio: 1/1;
+    border-radius: 9999px;
+    overflow: hidden;
+    
 }
 
 main section.feedback .container .cards .card .typography{
-    padding: 24px;
+    /* padding: 24px; */
     
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+main section.feedback .container .cards .card.img-only{
+    max-width: 200px;
+}
+
+main section.feedback .container .cards .card.img-only .head figcaption small,
+main section.feedback .container .cards .card.img-only .typography
+{
+    display: none;
+}
+
+main section.feedback .container .dots{
+    position: relative;
+    width: 100;
+
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+
+main section.feedback .container .dots > div{
+    width: 24px;
+    height: 24px;
+    background: var(--color-secondary);
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+main section.feedback .container .dots > div.active{
+    background: var(--color-accent);
 }
 
 main section.faq{
@@ -773,19 +825,40 @@ main section.latest-articles .container{
 
 main section.latest-articles .articles{
     display: flex;
-    gap: 32px;
+    gap: 40px;
 }
 
 main section.latest-articles .articles .card{
     flex: 1;
+    padding: 12px;
+    border-radius: 32px;
+    /* border: 1px solid var(--color-text-primary); */
+}
+
+main section.latest-articles .articles .card.active{
+    border: 1px solid var(--color-text-primary);
 }
 
 main section.latest-articles .articles .card .img{
     aspect-ratio: 3/2;
+    border-radius: 32px;
+    overflow: hidden;
 }
 
-main section.latest-articles .articles .card .blog-title{
-    padding: 8px 16px;
+main section.latest-articles .articles .card .typography{
+    padding: 12px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+main section.latest-articles .articles .card .typography .blog-title{
+}
+
+main section.latest-articles .articles .card .typography .additional-information{
+    display: flex;
+    justify-content: space-between;
 }
 
 main section.contact{

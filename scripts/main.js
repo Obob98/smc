@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 let checkHeader = true
 
 const header = document.querySelector('header')
-const headerLogo = document.querySelector('.logo')
+// const headerLogo = document.querySelector('.logo')
 
 const themeDiv = document.querySelector('.floater')
 const themeToggle = document.querySelector('.themes > button');
@@ -13,6 +13,9 @@ const currentTheme = document.querySelector('.themes > p');
 
 const searchInput = document.querySelector('.floater input')
 const searchImg = document.querySelector('.floater .img')
+
+const testimonialCards = document.querySelectorAll('.feedback .card')
+const testimonialCardsDots = document.querySelectorAll('.feedback .dots > div')
 
 // task one
 let darkMode = true;
@@ -73,8 +76,8 @@ function positionThemeDiv(e) {
     if (headerPosition < 0) {
 
         if (checkHeader) {
-            headerLogo.classList.add('fixed')
-            headerLogo.classList.add('glass')
+            // headerLogo.classList.add('fixed')
+            // headerLogo.classList.add('glass')
 
             themeDiv.classList.add('fixed')
             themeDiv.classList.add('container')
@@ -83,7 +86,7 @@ function positionThemeDiv(e) {
             themeDiv.style.right = 'unset'
             themeDiv.style.flexDirection = 'row'
 
-            searchInput.parentNode.classList.add('absolute-center')
+            // searchInput.parentNode.classList.add('absolute-center')
 
             openInput()
 
@@ -91,8 +94,8 @@ function positionThemeDiv(e) {
         checkHeader = false
     }
     else {
-        headerLogo.classList.remove('fixed')
-        headerLogo.classList.remove('glass')
+        // headerLogo.classList.remove('fixed')
+        // headerLogo.classList.remove('glass')
 
         themeDiv.classList.remove('fixed')
         themeDiv.classList.remove('container')
@@ -101,7 +104,7 @@ function positionThemeDiv(e) {
         themeDiv.style.right = '16px'
         themeDiv.style.flexDirection = 'column'
 
-        searchInput.parentNode.classList.remove('absolute-center')
+        // searchInput.parentNode.classList.remove('absolute-center')
 
         closeInput()
 
@@ -122,10 +125,62 @@ function closeInput() {
 }
 
 
-function initApp() {
 
+let curr = 0
+let testimonialCardsAnimationInterval
+
+function addFlexOne(element) {
+    element.style.flex = '1'
+}
+
+function removeFlex(element) {
+    element.style.flex = 'none'
+}
+
+function focusTestimonialCard(i) {
+    clearInterval(testimonialCardsAnimationInterval)
+    curr = i
+    testimonialCardsAnimation()
+
+    testimonialCardsAnimationInterval = setInterval(() => {
+        testimonialCardsAnimation()
+    }, 5000);
+}
+
+testimonialCards.forEach((testimonialCard, i) => {
+    testimonialCard.addEventListener('click', () => {
+        focusTestimonialCard(i)
+    })
+})
+
+testimonialCardsDots.forEach((testimonialCardsDot, i) => {
+    testimonialCardsDot.addEventListener('click', () => {
+        focusTestimonialCard(i)
+    })
+})
+
+function testimonialCardsAnimation() {
+    for (let i = 0; i < testimonialCards.length; i++) {
+        addFlexOne(testimonialCards[i])
+        testimonialCards[i].classList.add('img-only')
+        testimonialCardsDots[i].classList.remove('active')
+    }
+
+    testimonialCards[curr].classList.remove('img-only')
+    testimonialCardsDots[curr].classList.add('active')
+    removeFlex(testimonialCards[curr])
+    if (curr === testimonialCards.length - 1) {
+        curr = 0
+    } else {
+        curr++
+    }
 }
 
 
+function initApp() {
+    testimonialCardsAnimation()
 
-
+    testimonialCardsAnimationInterval = setInterval(() => {
+        testimonialCardsAnimation()
+    }, 5000);
+}
