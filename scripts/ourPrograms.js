@@ -30,7 +30,7 @@ content.style.paddingTop = `${centerTop}px`
 window.addEventListener('scroll', () => {
     pauseImgDivs()
 
-    if (content.getBoundingClientRect().top >= 0) return
+    if (content.getBoundingClientRect().top >= centerTop) return
 
     if (content.getBoundingClientRect().bottom <= window.innerHeight) {
         // totalScroll = 1300
@@ -260,9 +260,6 @@ function foldAll() {
 }
 
 function initApp() {
-
-
-
     setHighest()
     breakAmount = imgDivs[0].offsetHeight
     centerTop = (window.innerHeight - imgDivs[0].offsetHeight) / 2

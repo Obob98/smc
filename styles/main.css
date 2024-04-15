@@ -48,6 +48,7 @@ button{
     width: fit-content;
     height: fit-content;
     padding: 16px 64px;
+    cursor: pointer;
 }
 
 img{
@@ -580,7 +581,7 @@ main section.our-programs .container .content{
 main section.our-programs .container .content .typography{
     height: fit-content;
     width: 600px;
-    border: 1px solid #fff;
+    border: 0.5px solid #fff;
     
     display: flex;
     flex-direction: column;
@@ -588,7 +589,7 @@ main section.our-programs .container .content .typography{
 
 main section.our-programs .container .content .typography > div{
     padding: 64px;
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.25px solid #fff;
     height: 600px;
     width: 100%;
 }
@@ -603,8 +604,8 @@ main section.our-programs .container .content .wrapper .img {
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 500px;
-    height: 600px;
+    width: 400px;
+    height: 500px;
     clip-path: polygon(
         0% 0%, 
         0% 0%, 

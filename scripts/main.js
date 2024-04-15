@@ -178,6 +178,8 @@ function testimonialCardsAnimation() {
 
 
 function initApp() {
+    console.log('initiating app')
+
     testimonialCardsAnimation()
 
     testimonialCardsAnimationInterval = setInterval(() => {
