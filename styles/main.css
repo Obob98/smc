@@ -550,11 +550,13 @@ main section.why-us .wraper .cards .card{
     transition: transform 100ms cubic-bezier(.215, .61, .355, 1);
 }
 
+
 main section.our-programs{
     position: relative;
     width: 100vw;
     height: fit-content;
     background: var(--color-bg-secondary);
+    background: linear-gradient(to bottom, var(--color-bg-secondary), var(--color-bg-primary));
 
     overflow-x: hidden;
 }
@@ -566,33 +568,58 @@ main section.our-programs .container{
 }
 
 main section.our-programs .container .content{
-    width: fit-content;
+    position: relative;
+    width: 1000px;
     padding: 0px 32px;
-    border-left: 1px solid #fff;
+    margin-inline: auto;
 
     display: flex;
     justify-content: space-between;
 }
 
-main section.our-programs .container .content .titles{
-    width: 600px;
-}
-
-main section.our-programs .container .content .cards{
-    width: fit-content;
-}
-
-main section.our-programs .container .content .cards .card{
-    width: 400px;
+main section.our-programs .container .content .typography{
     height: fit-content;
-    padding: 32px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 12px;
-    margin-right: 32px;
-
+    width: 600px;
+    border: 1px solid #fff;
+    
     display: flex;
     flex-direction: column;
-    gap: 64px;
+}
+
+main section.our-programs .container .content .typography > div{
+    padding: 64px;
+    border-bottom: 1px solid #fff;
+    height: 600px;
+    width: 100%;
+}
+
+
+main section.our-programs .container .content .wrapper{
+    position: relative;
+    padding-top: 40px;
+}
+
+main section.our-programs .container .content .wrapper .img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 500px;
+    height: 600px;
+    clip-path: polygon(
+        0% 0%, 
+        0% 0%, 
+        100% 0%, 
+        100% 0%, 
+        100% 100%, 
+        100% 100%, 
+        0% 100%, 
+        0% 100%
+        );
+        transition: clip-path 0.3s linear; 
+}
+
+main section.our-programs .container .content .wrapper .img img{
+    filter: brightness(0.8);
 }
 
 /* our supporters */
@@ -604,7 +631,8 @@ main section.our-supporters{
     display: flex;
     flex-direction: column;
     gap: 48px;
-    background: var(--color-bg-secondary);
+    /* background: var(--color-bg-secondary); */
+    background: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-secondary));
 }
 
 main section.our-supporters .logos{
@@ -633,7 +661,8 @@ main section.our-supporters .logos .logos-slider img{
 main section.feedback{
     width: 100vw;
     height: fit-content;
-    background: var(--color-bg-secondary);
+    /* background: var(--color-bg-secondary); */
+    background: linear-gradient(to top, var(--color-bg-primary), var(--color-bg-secondary));
 }
 
 main section.feedback .container{
@@ -738,7 +767,8 @@ main section.feedback .container .dots > div.active{
 }
 
 main section.faq{
-    background: var(--color-bg-secondary);
+    /* background: var(--color-bg-secondary); */
+    background: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-secondary));
 }
 
 main section.faq .container{
