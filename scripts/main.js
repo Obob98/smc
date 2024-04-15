@@ -22,7 +22,7 @@ let darkMode = true;
 
 
 window.addEventListener('scroll', e => {
-    positionThemeDiv(e)
+    // positionThemeDiv(e)
 })
 
 themeToggle.addEventListener('click', setDarkmode);
@@ -178,6 +178,8 @@ function testimonialCardsAnimation() {
 
 
 function initApp() {
+    console.log('initiating app')
+
     testimonialCardsAnimation()
 
     testimonialCardsAnimationInterval = setInterval(() => {
