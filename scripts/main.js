@@ -57,7 +57,7 @@ function setDarkmode() {
         currentTheme.style.color = '#fff'
         currentTheme.parentNode.style.background = '#ffffff20'
     } else {
-        document.documentElement.style.setProperty('--color-bg-primary', '#AACFD0');
+        document.documentElement.style.setProperty('--color-bg-primary', '#eee');
         document.documentElement.style.setProperty('--color-bg-secondary', '#F4F7F7');
         document.documentElement.style.setProperty('--color-accent', '#5a8383');
         document.documentElement.style.setProperty('--color-secondary', '#1F4E5F');

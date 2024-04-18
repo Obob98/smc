@@ -532,7 +532,7 @@ main section.why-us .wraper .cards .card{
     max-width: 600px;
     height: 300px;
     border-radius: 12px;
-    padding: 32px;
+    padding: 0px 32px;
     margin-inline: auto;
     
     display: flex;
@@ -551,6 +551,33 @@ main section.why-us .wraper .cards .card{
     transition: transform 100ms cubic-bezier(.215, .61, .355, 1);
 }
 
+main section.why-us .wraper .cards .card .icon{
+    width: 100px;
+    height: 100%;
+    background: #CFD213;
+    
+    display: grid;
+    place-content: center;
+}
+
+main section.why-us .wraper .cards .card:nth-child(2) .icon{
+    background: dodgerblue;
+}
+
+main section.why-us .wraper .cards .card:nth-child(3) .icon{
+    background: #fff;
+}
+
+main section.why-us .wraper .cards .card .icon img{
+    width: 90%;
+    aspect-ratio: 1/1;
+}
+
+main section.why-us .wraper .cards .card p{
+    flex: 1;
+}
+
+/* our programs section */
 
 main section.our-programs{
     position: relative;
@@ -581,19 +608,27 @@ main section.our-programs .container .content{
 main section.our-programs .container .content .typography{
     height: fit-content;
     width: 600px;
-    border: 0.5px solid #fff;
+    border: 0.5px solid #fff4;
     
     display: flex;
     flex-direction: column;
 }
 
 main section.our-programs .container .content .typography > div{
-    padding: 64px;
-    border-bottom: 0.25px solid #fff;
+    padding: 160px 64px;
+    border-bottom: 0.25px solid #fff4;
     height: 600px;
     width: 100%;
 }
 
+main section.our-programs .container .content .typography > div h2{
+    padding-bottom: 32px;
+}
+
+main section.our-programs .container .content .typography > div small{
+    max-width: 300px;
+    display: inline-block;
+}
 
 main section.our-programs .container .content .wrapper{
     position: relative;
@@ -655,7 +690,7 @@ main section.our-supporters .logos .logos-slider{
 main section.our-supporters .logos .logos-slider img{
     height: 50px;
     width: auto;
-    margin-inline: 40px;
+    margin-inline: 80px;
 }
 
 /* feedback */
