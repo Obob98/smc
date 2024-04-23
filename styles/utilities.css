@@ -45,15 +45,59 @@ center{
 /* colors */
 
 .glass{
+    position: relative;
     /* background: var(--glass-var, #ffffff20);
     backdrop-filter: blur(4px); */
 
-    background: rgba( 255, 255, 255, 0.25 );
+    /* background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+
+    /* From https://css.glass */
+
+/* background: rgba(var(--color-accent), 0.5); */
+background: #fff4;
+/* background: #0004; */
+/* border-radius: 16px; */
+/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); */
+/* box-shadow: rgba(0, 0, 0, 0.15) 0px 1.95px 2.6px; */
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4.3px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+overflow: hidden;
+
+/* backdrop-filter: saturate(75%)blur(40px);
+background: rgba(0,11,20,.8); */
+}
+
+.glass::before{
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 35%;
+    height: 25%;
+    background: #eeaeca;
+    background: radial-gradient(circle, #eeaeca 0%, #4b76bb 100%);
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.glass::after{
+    content: "";
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
+    width: 35%;
+    height: 25%;
+    background: #4b76bb;
+    background: radial-gradient(circle, #4b76bb 0%, #eeaeca 100%);
+    filter: blur(50px);
+    z-index: -1;
 }
 
 /*  */

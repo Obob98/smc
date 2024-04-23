@@ -11,7 +11,7 @@ let curentDiv = content
 while (curentDiv) {
     if (typeof (curentDiv.offsetTop) !== 'number') break
 
-    console.log({ curentDiv: curentDiv, lastScrollTop: curentDiv.offsetTop })
+
 
     lastScrollTop += curentDiv.offsetTop
 
@@ -19,8 +19,6 @@ while (curentDiv) {
 }
 
 lastScrollTop -= document.querySelector('main').offsetTop
-
-console.log({ lastScrollTop })
 
 let totalScroll = 0
 
@@ -52,7 +50,7 @@ window.addEventListener('scroll', () => {
 
     let scrollPercentage = ((scrollDistance * 100) / breakAmount)
 
-    console.log({ currentScrollTop, lastScrollTop, scrollDistance, scrollPercentage })
+
 
     // Calculate the amount to adjust clip path based on scroll distance
     // const clipAdjustment = scrollDistance * 0.1; // Adjust this value as needed

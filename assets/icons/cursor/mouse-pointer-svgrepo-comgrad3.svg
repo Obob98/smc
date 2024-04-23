@@ -1,0 +1,15 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 557.81 797.69">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-96.48" y1="243.48" x2="639.45" y2="243.48" gradientTransform="matrix(0.91, 0.42, 0.42, -0.91, -140.61, 574.53)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eeaeca"/>
+      <stop offset="1" stop-color="#94bbe9"/>
+    </linearGradient>
+  </defs>
+  <title>mouse-pointer-svgrepo-comgrad3</title>
+  <path class="cls-1" d="M561.41,583.88a18.21,18.21,0,0,1-1,2,39.83,39.83,0,0,1-41.22,20.48L266,567,107.23,782.84a39.8,39.8,0,0,1-71.86-22.05l-28-718A39.74,39.74,0,0,1,76.59,14.5L554.77,540.22A39.6,39.6,0,0,1,561.41,583.88Z" transform="translate(-7.38 -1.41)"/>
+</svg>

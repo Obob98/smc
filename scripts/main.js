@@ -5,9 +5,10 @@ window.addEventListener('DOMContentLoaded', () => {
 let checkHeader = true
 
 const header = document.querySelector('header')
-// const headerLogo = document.querySelector('.logo')
+const fixedNav = document.querySelector('nav.fixed')
 
 const themeDiv = document.querySelector('.floater')
+const themes = document.querySelector('.themes');
 const themeToggle = document.querySelector('.themes > button');
 const currentTheme = document.querySelector('.themes > p');
 
@@ -19,10 +20,12 @@ const testimonialCardsDots = document.querySelectorAll('.feedback .dots > div')
 
 // task one
 let darkMode = true;
-
+let lastScrollTop2
 
 window.addEventListener('scroll', e => {
-    // positionThemeDiv(e)
+
+    positionThemeDiv(e)
+
 })
 
 themeToggle.addEventListener('click', setDarkmode);
@@ -48,8 +51,8 @@ function setDarkmode() {
     darkMode = !darkMode;
     if (darkMode) {
         document.documentElement.style.setProperty('--color-bg-primary', '#272829');
-        document.documentElement.style.setProperty('--color-bg-secondary', '#1E293B');
-        document.documentElement.style.setProperty('--color-accent', '#79A8A9');
+        document.documentElement.style.setProperty('--color-bg-secondary', '#0c1013');
+        document.documentElement.style.setProperty('--color-accent', '#6d4bbb');
         document.documentElement.style.setProperty('--color-secondary', '#D8D9DA');
         document.documentElement.style.setProperty('--color-text-primary', '#FFF6E0');
 
@@ -57,15 +60,15 @@ function setDarkmode() {
         currentTheme.style.color = '#fff'
         currentTheme.parentNode.style.background = '#ffffff20'
     } else {
-        document.documentElement.style.setProperty('--color-bg-primary', '#eee');
-        document.documentElement.style.setProperty('--color-bg-secondary', '#F4F7F7');
-        document.documentElement.style.setProperty('--color-accent', '#5a8383');
+        document.documentElement.style.setProperty('--color-bg-primary', '#bbb');
+        document.documentElement.style.setProperty('--color-bg-secondary', '#ccc');
+        document.documentElement.style.setProperty('--color-accent', '#000');
         document.documentElement.style.setProperty('--color-secondary', '#1F4E5F');
         document.documentElement.style.setProperty('--color-text-primary', '#111119');
 
         currentTheme.innerText = 'light'
         currentTheme.style.color = '#000'
-        currentTheme.parentNode.style.background = '#00000020'
+        currentTheme.parentNode.style.background = '#00000070'
     }
 }
 
@@ -73,52 +76,44 @@ function positionThemeDiv(e) {
 
     headerPosition = header.getBoundingClientRect().bottom
 
-    if (headerPosition < 0) {
+    const currentScrollTop = window.scrollY
+    const scrollDirection = currentScrollTop > lastScrollTop2 ? 'down' : 'up'
+
+
+    if (headerPosition < 0 && scrollDirection === 'up') {
 
         if (checkHeader) {
-            // headerLogo.classList.add('fixed')
-            // headerLogo.classList.add('glass')
 
-            themeDiv.classList.add('fixed')
-            themeDiv.classList.add('container')
-            themeDiv.style.top = '16px'
-            themeDiv.style.bottom = 'unset'
-            themeDiv.style.right = 'unset'
-            themeDiv.style.flexDirection = 'row'
+            fixedNav.style.display = 'flex'
 
-            // searchInput.parentNode.classList.add('absolute-center')
-
-            openInput()
+            themeDiv.removeChild(themes)
+            fixedNav.children[0].appendChild(themes)
 
         }
         checkHeader = false
     }
     else {
-        // headerLogo.classList.remove('fixed')
-        // headerLogo.classList.remove('glass')
+        fixedNav.style.display = 'none'
 
-        themeDiv.classList.remove('fixed')
-        themeDiv.classList.remove('container')
-        themeDiv.style.top = 'unset'
-        themeDiv.style.bottom = '16px'
-        themeDiv.style.right = '16px'
-        themeDiv.style.flexDirection = 'column'
-
-        // searchInput.parentNode.classList.remove('absolute-center')
-
-        closeInput()
+        if (!checkHeader) {
+            fixedNav.children[0].removeChild(themes)
+            themeDiv.appendChild(themes)
+        }
 
         checkHeader = true
     }
+    lastScrollTop2 = currentScrollTop
 }
 
 function openInput() {
+    searchInput.parentNode.parentNode.style.flexDirection = 'row'
     searchInput.style.width = '400px'
     searchInput.style.opacity = '1'
     searchImg.style.display = 'none'
 }
 
 function closeInput() {
+    searchInput.parentNode.parentNode.style.flexDirection = 'column'
     searchInput.style.width = '0px'
     searchInput.style.opacity = '0'
     searchImg.style.display = 'inline-block'
@@ -160,6 +155,7 @@ testimonialCardsDots.forEach((testimonialCardsDot, i) => {
 })
 
 function testimonialCardsAnimation() {
+    if (!testimonialCards.length) return
     for (let i = 0; i < testimonialCards.length; i++) {
         addFlexOne(testimonialCards[i])
         testimonialCards[i].classList.add('img-only')
@@ -178,7 +174,6 @@ function testimonialCardsAnimation() {
 
 
 function initApp() {
-    console.log('initiating app')
 
     testimonialCardsAnimation()
 
