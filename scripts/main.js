@@ -24,7 +24,7 @@ let lastScrollTop2
 
 window.addEventListener('scroll', e => {
 
-    positionThemeDiv(e)
+    positionNav(e)
 
 })
 
@@ -72,7 +72,7 @@ function setDarkmode() {
     }
 }
 
-function positionThemeDiv(e) {
+function positionNav(e) {
 
     headerPosition = header.getBoundingClientRect().bottom
 
@@ -87,6 +87,7 @@ function positionThemeDiv(e) {
             fixedNav.style.display = 'flex'
 
             themeDiv.removeChild(themes)
+            themeDiv.style.position = 'fixed'
             fixedNav.children[0].appendChild(themes)
 
         }
