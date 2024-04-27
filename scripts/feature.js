@@ -47,12 +47,10 @@ const titlesState = {
 window.addEventListener('scroll', function () {
     updateScrollDirection()
 
-    // 
-
     const currentScrollY = window.scrollY || window.pageYOffset
     const stickyDivPosition = stickyDiv.getBoundingClientRect()
 
-    if (stickyDivPosition.top <= 0) {
+    if (stickyDivPosition.top <= 0 || (stickyDivPosition.bottom >= this.window.innerHeight && scrollDirection === 'up')) {
 
         for (let i = 0; i < childrenDivs.length; i++) {
             for (let j = i; j < childrenDivs.length; j++) {
@@ -82,6 +80,8 @@ function translateCards(i, j, currentScrollY) {
             const childDivLastTranslatedAmount = getElementLastTranslatedAmount(childDiv, 'y')
 
             if (childDivPosition <= (parentDivPosition + ((i + 1) * (currentScrollY - lastScrollY) + (i * i * 10)))) {
+                // console.log(i, ((i + 1) * (currentScrollY - lastScrollY) + (i * i * 10)))
+
                 if (i === 0) {
                     childDiv.style.transform = 'translateY(20px) scale(0.93)'
                 } else {
@@ -99,13 +99,9 @@ function translateCards(i, j, currentScrollY) {
                     titles.children[i - 1].style.left = `-50%`
                 }
 
-
-
-                // console.log({ childrenState })
             } else {
                 if (childrenState[childStateKey].canTranslateUp) {
                     childrenDivs[j].style.transform = `translateY(-${Math.abs(childDivLastTranslatedAmount) + (currentScrollY - lastScrollY)}px)`
-
                 }
             }
         }
@@ -149,8 +145,6 @@ function translateCards(i, j, currentScrollY) {
                 }
             }
         }
-
-
     }
 }
 
@@ -165,16 +159,12 @@ function updateScrollDirection() {
 }
 
 function getElementLastTranslatedAmount(element, axis) {
-    // Get the computed style of the element
     const computedStyle = window.getComputedStyle(element);
 
-    // Get the value of the transform property
     const transformValue = computedStyle.getPropertyValue('transform');
 
-    // Convert the transform value to a DOMMatrix object
     const transformMatrix = new DOMMatrix(transformValue);
 
-    // Extract the translateY component from the matrix 
     let elementLastTranslatedAmount
 
     if (axis === 'x') {

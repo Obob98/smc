@@ -9,14 +9,12 @@ const fixedNav = document.querySelector('nav.fixed')
 
 const themeDiv = document.querySelector('.floater')
 const themes = document.querySelector('.themes');
+const profile = document.querySelector('nav.fixed .profile');
 const themeToggle = document.querySelector('.themes > button');
 const currentTheme = document.querySelector('.themes > p');
 
 const searchInput = document.querySelector('.floater input')
 const searchImg = document.querySelector('.floater .img')
-
-const testimonialCards = document.querySelectorAll('.feedback .card')
-const testimonialCardsDots = document.querySelectorAll('.feedback .dots > div')
 
 // task one
 let darkMode = true;
@@ -79,25 +77,29 @@ function positionNav(e) {
     const currentScrollTop = window.scrollY
     const scrollDirection = currentScrollTop > lastScrollTop2 ? 'down' : 'up'
 
+    const rightmost = document.querySelector('.rightmost')
 
     if (headerPosition < 0 && scrollDirection === 'up') {
 
         if (checkHeader) {
 
+
             fixedNav.style.display = 'flex'
 
             themeDiv.removeChild(themes)
-            themeDiv.style.position = 'fixed'
-            fixedNav.children[0].appendChild(themes)
+            // themeDiv.style.position = 'fixed'
+
+            console.log({ profile })
+            // fixedNav.children[0].insertBefore(themes, profile)
+            rightmost.insertBefore(themes, rightmost.children[0])
 
         }
         checkHeader = false
-    }
-    else {
+    } else {
         fixedNav.style.display = 'none'
 
         if (!checkHeader) {
-            fixedNav.children[0].removeChild(themes)
+            rightmost.removeChild(themes)
             themeDiv.appendChild(themes)
         }
 
@@ -121,60 +123,12 @@ function closeInput() {
 }
 
 
-
-let curr = 0
-let testimonialCardsAnimationInterval
-
-function addFlexOne(element) {
-    element.style.flex = '1'
-}
-
-function removeFlex(element) {
-    element.style.flex = 'none'
-}
-
-function focusTestimonialCard(i) {
-    clearInterval(testimonialCardsAnimationInterval)
-    curr = i
-    testimonialCardsAnimation()
-
-    testimonialCardsAnimationInterval = setInterval(() => {
-        testimonialCardsAnimation()
-    }, 5000);
-}
-
-testimonialCards.forEach((testimonialCard, i) => {
-    testimonialCard.addEventListener('click', () => {
-        focusTestimonialCard(i)
-    })
-})
-
-testimonialCardsDots.forEach((testimonialCardsDot, i) => {
-    testimonialCardsDot.addEventListener('click', () => {
-        focusTestimonialCard(i)
-    })
-})
-
-function testimonialCardsAnimation() {
-    if (!testimonialCards.length) return
-    for (let i = 0; i < testimonialCards.length; i++) {
-        addFlexOne(testimonialCards[i])
-        testimonialCards[i].classList.add('img-only')
-        testimonialCardsDots[i].classList.remove('active')
-    }
-
-    testimonialCards[curr].classList.remove('img-only')
-    testimonialCardsDots[curr].classList.add('active')
-    removeFlex(testimonialCards[curr])
-    if (curr === testimonialCards.length - 1) {
-        curr = 0
-    } else {
-        curr++
-    }
-}
-
-
 function initApp() {
+
+    setHighest()
+
+    breakAmount = imgDivs[0].offsetHeight
+    centerTop = (window.innerHeight - imgDivs[0].offsetHeight) / 2
 
     testimonialCardsAnimation()
 

@@ -1,70 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include('./partials/header.php') ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC</title>
     <link rel="stylesheet" href="./animation.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/utilities.css">
     <link rel="stylesheet" href="./styles/main.css">
 
-    <script src="./scripts/feature.js" defer></script>
-    <script src="./scripts/ourPrograms.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
     <script src="./scripts/main.js" defer></script>
 </head>
 
 <body>
     <header>
-        <div class="hero">
-            <nav class="container">
-                <div class="logo">
-                    <a href="/" class="h1 f-bold">
-                        <img src="./assets/imgs/360_F_479093143_1ypd13XBPiPtBJcsprzEhhxflcfqEGna.jpg" alt="">
-                    </a>
-                </div>
-                <ul class="glass border-full">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/about-us.html">About Us</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">how</a></li>
-                    <li><a href="#">livestreaming</a></li>
-                    <li><a href="/contact-us.html">contact</a></li>
-                    <li><a href="#">L&G</a></li>
-                </ul>
-                <div class="socials">
-                    <div><img src="./assets/icons/socials/facebook.png" alt=""></div>
-                    <div><img src="./assets/icons/socials/twitter.png" alt=""></div>
-                    <div><img src="./assets/icons/socials/instagram.png" alt=""></div>
-                </div>
-            </nav>
-            <nav class="fixed glass">
-                <div class="container">
-                    <div class="logo">
-                        <img src="./assets/imgs/360_F_479093143_1ypd13XBPiPtBJcsprzEhhxflcfqEGna.jpg" alt="">
-                    </div>
-                    <ul class="glass border-full">
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/about-us.html">About Us</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">how</a></li>
-                        <li><a href="#">livestreaming</a></li>
-                        <li><a href="/contact-us.html">contact</a></li>
-                        <li><a href="#">L&G</a></li>
-                    </ul>
-                    <!-- <div class=" floater">
-                        <a class="themes glass border-full">
-                            <p class="">system</p>
-                            <button id="mode-toggle">
-                                <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.79289 8.20711C7.18342 8.59763 7.81658 8.59763 8.20711 8.20711L14.5711 1.84315C14.9616 1.45262 14.9616 0.819456 14.5711 0.428932C14.1805 0.0384076 13.5474 0.0384076 13.1569 0.428932L7.5 6.08579L1.84315 0.428932C1.45262 0.0384082 0.819456 0.0384082 0.428932 0.428932C0.0384076 0.819457 0.0384077 1.45262 0.428932 1.84315L6.79289 8.20711ZM6.5 6.5L6.5 7.5L8.5 7.5L8.5 6.5L6.5 6.5Z" fill="white"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </div> -->
-                </div>
-                <!-- <p>menu</p> -->
-            </nav>
+        <div class="hero withbackground">
+            <!-- <div class="overlay"></div> -->
+
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/smc/smc/site/partials/nav.php');?>
+
+
             <div class="hero-content container">
                 <div class="left">
                     <div class="dots">
@@ -77,10 +33,11 @@
                         join us
                     </button>
                 </div>
-                <div class="right"> 
+                <div class="right">
                     <p>
-                        we're dedicated to helping teenagers navigate the digital world safely.</div>
-                    </p>
+                        we're dedicated to helping teenagers navigate the digital world safely.
+                </div>
+                </p>
                 <div class="floater">
                     <form action="">
                         <input type="search" placeholder="Search" class="glass border-full">
@@ -89,8 +46,11 @@
                     <a class="themes glass border-full">
                         <p class="">system</p>
                         <button id="mode-toggle">
-                            <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.79289 8.20711C7.18342 8.59763 7.81658 8.59763 8.20711 8.20711L14.5711 1.84315C14.9616 1.45262 14.9616 0.819456 14.5711 0.428932C14.1805 0.0384076 13.5474 0.0384076 13.1569 0.428932L7.5 6.08579L1.84315 0.428932C1.45262 0.0384082 0.819456 0.0384082 0.428932 0.428932C0.0384076 0.819457 0.0384077 1.45262 0.428932 1.84315L6.79289 8.20711ZM6.5 6.5L6.5 7.5L8.5 7.5L8.5 6.5L6.5 6.5Z" fill="white"/>
+                            <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.79289 8.20711C7.18342 8.59763 7.81658 8.59763 8.20711 8.20711L14.5711 1.84315C14.9616 1.45262 14.9616 0.819456 14.5711 0.428932C14.1805 0.0384076 13.5474 0.0384076 13.1569 0.428932L7.5 6.08579L1.84315 0.428932C1.45262 0.0384082 0.819456 0.0384082 0.428932 0.428932C0.0384076 0.819457 0.0384077 1.45262 0.428932 1.84315L6.79289 8.20711ZM6.5 6.5L6.5 7.5L8.5 7.5L8.5 6.5L6.5 6.5Z"
+                                    fill="white" />
                             </svg>
                         </button>
                     </a>
@@ -107,9 +67,13 @@
                 <div class="content">
                     <article>
                         <h2>We promote online safety among teenagers.</h2>
-                        <p>In today's digital age, social media plays a significant role in the lives of teenagers. While it offers opportunities for connection and self-expression, it also presents risks that can impact their safety and well-being.
+                        <p>In today's digital age, social media plays a significant role in the lives of teenagers.
+                            While it offers opportunities for connection and self-expression, it also presents risks
+                            that can impact their safety and well-being.
                             <br>
-                            <br> At SMC, we believe in empowering teens with the knowledge and tools they need to stay safe online.</p>
+                            <br> At SMC, we believe in empowering teens with the knowledge and tools they need to stay
+                            safe online.
+                        </p>
                     </article>
                     <button class="btn-secondary">Learn More</button>
                 </div>
@@ -122,46 +86,46 @@
             </div> -->
             <div class="logos">
                 <!-- <div class="one"> -->
-                    <div class="logos-slider">
+                <div class="logos-slider">
+                    <div>
                         <div>
-                            <div>
-                                <div class="number">2012</div>
-                                <div class="number-subtitle">Founded</div>
-                            </div>
+                            <div class="number">2012</div>
+                            <div class="number-subtitle">Founded</div>
                         </div>
-                        <div>
-                            <div>
-                                <div class="number">150+</div>
-                                <div class="number-subtitle">Team Members</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div class="number">12+</div>
-                                <div class="number-subtitle">Years of client Partnership</div>
-                            </div>
-                        </div>                        
                     </div>
-                    <div class="logos-slider">
+                    <div>
                         <div>
-                            <div>
-                                <div class="number">2012</div>
-                                <div class="number-subtitle">Founded</div>
-                            </div>
+                            <div class="number">150+</div>
+                            <div class="number-subtitle">Team Members</div>
                         </div>
-                        <div>
-                            <div>
-                                <div class="number">150+</div>
-                                <div class="number-subtitle">Team Members</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div class="number">12+</div>
-                                <div class="number-subtitle">Years of client Partnership</div>
-                            </div>
-                        </div>                        
                     </div>
+                    <div>
+                        <div>
+                            <div class="number">12+</div>
+                            <div class="number-subtitle">Years of client Partnership</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logos-slider">
+                    <div>
+                        <div>
+                            <div class="number">2012</div>
+                            <div class="number-subtitle">Founded</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">150+</div>
+                            <div class="number-subtitle">Team Members</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">12+</div>
+                            <div class="number-subtitle">Years of client Partnership</div>
+                        </div>
+                    </div>
+                </div>
                 <!-- </div> -->
                 <!-- <div class="two"> -->
                 <!-- <img src="./assets/icons/Logo-1.png" alt="Logo-1">
@@ -172,8 +136,8 @@
                 <!-- </div> -->
             </div>
         </section>
-        
-        <section class="why-us" >
+
+        <section class="why-us">
             <div class="wraper">
                 <div class="content sticky-div">
                     <div class="titles">
@@ -181,40 +145,55 @@
                         <h2 class="h2-2" style="--i:2">Expertise and Experience</h2>
                         <h2 class="h2-3" style="--i:3">Holistic Approach</h2>
                     </div>
-                    <div class="cards" style="transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;">
-                                    
-    
-                                        <div class="card card-one glass">
-                                            <div class="icon">
-                                                <img src="./assets/icons/why-us/11405564_elearning_online learning_online education_e-learning_education_icon.png" alt="">
-                                            </div>
-                                            <p>
-                                                At SMC, education is at the heart of everything we do. We're passionate about empowering teenagers to make informed decisions online and understand the potential risks and consequences of their digital actions. Through our engaging content, interactive workshops, and educational initiatives, we strive to foster a culture of digital literacy and responsibility among today's youth.
-                                            </p>
-                                        </div>
-    
-                                        <div class="card card-one glass">
-                                            <div class="icon">
-                                                <img src="./assets/icons/why-us/11406736_rating_feedback_review_rate_star_icon.png" alt="">
-                                            </div>
-                                            <p>Our team consists of seasoned professionals with years of experience in digital marketing, cybersecurity, and youth advocacy. We combine our expertise to develop comprehensive strategies and resources tailored to the unique needs
-                                                of teenagers, ensuring they receive accurate and up-to-date information on online safety practices.</p>
-                                        </div>
-    
-                                        <div class="card card-one glass">
-                                            <div class="icon">
-                                                <img src="./assets/icons/why-us/11407472_security_compliance_protect_safety_secure_icon.png" alt="">
-                                            </div>
-                                            <p>
-                                                We believe in taking a holistic approach to online safety, addressing not only the technical aspects of cybersecurity but also the social, emotional, and ethical dimensions of digital citizenship. Our programs cover topics such as privacy protection, cyberbullying prevention, digital footprint management, and online etiquette, ensuring teenagers develop a well-rounded understanding of online safety principles.
-                                            </p>
-                                        </div>
-                                    
-                                </div>
+                    <div class="cards"
+                        style="transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;">
+
+
+                        <div class="card card-one glass">
+                            <div class="icon">
+                                <img src="./assets/icons/why-us/11405564_elearning_online learning_online education_e-learning_education_icon.png"
+                                    alt="">
                             </div>
+                            <p>
+                                At SMC, education is at the heart of everything we do. We're passionate about empowering
+                                teenagers to make informed decisions online and understand the potential risks and
+                                consequences of their digital actions. Through our engaging content, interactive
+                                workshops, and educational initiatives, we strive to foster a culture of digital
+                                literacy and responsibility among today's youth.
+                            </p>
                         </div>
-                    
+
+                        <div class="card card-one glass">
+                            <div class="icon">
+                                <img src="./assets/icons/why-us/11406736_rating_feedback_review_rate_star_icon.png"
+                                    alt="">
+                            </div>
+                            <p>Our team consists of seasoned professionals with years of experience in digital
+                                marketing, cybersecurity, and youth advocacy. We combine our expertise to develop
+                                comprehensive strategies and resources tailored to the unique needs
+                                of teenagers, ensuring they receive accurate and up-to-date information on online safety
+                                practices.</p>
+                        </div>
+
+                        <div class="card card-one glass">
+                            <div class="icon">
+                                <img src="./assets/icons/why-us/11407472_security_compliance_protect_safety_secure_icon.png"
+                                    alt="">
+                            </div>
+                            <p>
+                                We believe in taking a holistic approach to online safety, addressing not only the
+                                technical aspects of cybersecurity but also the social, emotional, and ethical
+                                dimensions of digital citizenship. Our programs cover topics such as privacy protection,
+                                cyberbullying prevention, digital footprint management, and online etiquette, ensuring
+                                teenagers develop a well-rounded understanding of online safety principles.
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
+            </div>
+
+            </div>
             </div>
             </div>
         </section>
@@ -229,26 +208,31 @@
                         <div class="one">
                             <h2>Partnerships and Collaborations</h2>
                             <small>
-                                <sup>_______</sup> We collaborate with schools, community organizations, and industry partners to amplify our impact and reach a wider audience with our online safety initiatives. 
+                                <sup>_______</sup> We collaborate with schools, community organizations, and industry
+                                partners to amplify our impact and reach a wider audience with our online safety
+                                initiatives.
                             </small>
                         </div>
                         <div class="two">
                             <h2>Donations and Fundraising Campaigns</h2>
                             <small>
-                                <sup>_______</sup> As a nonprofit organization, we rely on the generous support of individuals and organizations to fund our programs and initiatives.  
+                                <sup>_______</sup> As a nonprofit organization, we rely on the generous support of
+                                individuals and organizations to fund our programs and initiatives.
                             </small>
                         </div>
                         <div class="three">
                             <h2>Subscription Program</h2>
                             <small>
-                                <sup>_______</sup> Our subscription program offers teenagers access to premium content and resources designed to deepen their understanding of online safety. 
+                                <sup>_______</sup> Our subscription program offers teenagers access to premium content
+                                and resources designed to deepen their understanding of online safety.
                             </small>
                         </div>
                     </div>
-        
+
                     <div class="wrapper">
                         <div class="img img-one">
-                            <img src="./assets/imgs/our programs/Tips-to-Protect-Yourself-on-Facebook-Instagram_2022-05-11-152121_sccc.jpg" alt="">
+                            <img src="./assets/imgs/our programs/Tips-to-Protect-Yourself-on-Facebook-Instagram_2022-05-11-152121_sccc.jpg"
+                                alt="">
                         </div>
                         <div class="img img-two">
                             <img src="./assets/imgs/our programs/digital-footprint-2.jpg" alt="">
@@ -257,7 +241,7 @@
                             <img src="./assets/imgs/our programs/1.jpg" alt="">
                         </div>
                     </div>
-            
+
                 </div>
             </div>
         </section>
@@ -277,9 +261,10 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="card glass">
@@ -291,9 +276,10 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="card glass">
@@ -305,9 +291,10 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="card glass">
@@ -319,9 +306,10 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="card glass">
@@ -333,9 +321,10 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="card glass">
@@ -347,20 +336,21 @@
                             </figcaption>
                         </div>
                         <div class="typography">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam placeat facere labore alias officiis odit, odio magnam qui totam 
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab deserunt assumenda veniam
+                                placeat facere labore alias officiis odit, odio magnam qui totam
                             </p>
-                            
+
                         </div>
                     </div>
-            </div>
-            <div class="dots">
-                <div class="active"></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+                </div>
+                <div class="dots">
+                    <div class="active"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
         </section>
 
         <section class="our-supporters" id="our-suppoters">
@@ -369,20 +359,20 @@
             </div>
             <div class="logos">
                 <!-- <div class="one"> -->
-                    <div class="logos-slider">
-                        <img src="./assets/icons/Logo-1.png" alt="Logo-1">
-                        <img src="./assets/icons/Logo-2.png" alt="Logo-2">
-                        <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                        <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                        <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">                        
-                    </div>
-                    <div class="logos-slider">
-                        <img src="./assets/icons/Logo-1.png" alt="Logo-1">
-                        <img src="./assets/icons/Logo-2.png" alt="Logo-2">
-                        <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                        <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                        <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">                      
-                    </div>
+                <div class="logos-slider">
+                    <img src="./assets/icons/Logo-1.png" alt="Logo-1">
+                    <img src="./assets/icons/Logo-2.png" alt="Logo-2">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">
+                </div>
+                <div class="logos-slider">
+                    <img src="./assets/icons/Logo-1.png" alt="Logo-1">
+                    <img src="./assets/icons/Logo-2.png" alt="Logo-2">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">
+                </div>
                 <!-- </div> -->
                 <!-- <div class="two"> -->
                 <!-- <img src="./assets/icons/Logo-1.png" alt="Logo-1">
@@ -409,12 +399,16 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 <p>+</p>
                             </label>
-                            <div class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati, necessitatibus reiciendis dolorum vel soluta exercitationem quod, ex aut illum numquam reprehenderit consequatur consectetur rem possimus sunt corporis quidem praesentium! Dolor, iure?</div>
+                            <div class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati,
+                                necessitatibus reiciendis dolorum vel soluta exercitationem quod, ex aut illum numquam
+                                reprehenderit consequatur consectetur rem possimus sunt corporis quidem praesentium!
+                                Dolor, iure?</div>
                         </div>
                         <div>
                             <input type="radio" id="q2" name="qna">
                             <label for="q2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel molestiae cum eligendi amet adipisci, tenetur libero.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel molestiae cum eligendi
+                                    amet adipisci, tenetur libero.</p>
                                 <p>+</p>
                             </label>
                             <div class="answer">answer 2</div>
@@ -422,7 +416,8 @@
                         <div>
                             <input type="radio" id="q3" name="qna">
                             <label for="q3">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio saepe modi corrupti?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio saepe modi
+                                    corrupti?</p>
                                 <p>+</p>
                             </label>
                             <div class="answer">answer 3</div>
@@ -438,7 +433,8 @@
                         <div>
                             <input type="radio" id="q5" name="qna">
                             <label for="q5">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reprehenderit doloremque itaque quo molestiae.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio reprehenderit
+                                    doloremque itaque quo molestiae.</p>
                                 <p>+</p>
                             </label>
                             <div class="answer">answer 5</div>
@@ -528,11 +524,11 @@
                             <input type="email" placeholder="johndoe@gmail.com" required>
                         </label>
                         <label for="">
-                            Subject 
+                            Subject
                             <input type="text" placeholder="Lorem, ipsum dolor.">
                         </label>
                         <label for="" class="textarea">
-                            message 
+                            message
                             <textarea name="" id="" cols="30" rows="10" required></textarea>
                         </label>
 
@@ -542,34 +538,5 @@
             </div>
         </section>
     </main>
-    <footer>
-        <div class="container">
-            <div class="logo">smc</div>
-            <section class="links">
-                <ul>
-                    <p>More</p>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Projects</a></li>
-                </ul>
-                <ul>
-                    <p>Connect</p>
-                    <li><a href="#">FaceBook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twiiter</a></li>
-                    <li><a href="#">Linkedin</a></li>
-                </ul>
-            </section>
-            <section class="subscribe">
-                <h2>Subscribe to get latest updates</h2>
-                <form action="" class="border-full glass">
-                    <input type="text" placeholder="Your email" required>
-                    <input type="submit" value="Subscribe" class="btn-primary border-full shadow-large glass">
-                </form>
-            </section>
-        </div>
-    </footer>
-</body>
 
-</html>
+    <?php include('./partials/footer.php') ?>

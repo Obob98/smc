@@ -1,0 +1,12 @@
+.wrapper .timer {
+    /* display: none; */
+}
+
+.wrapper form input {
+    grid-column: span 2;
+}
+
+.wrapper form input:disabled,
+.wrapper form button:disabled {
+    opacity: 0.5;
+}
