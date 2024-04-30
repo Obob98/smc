@@ -6,8 +6,12 @@
         </a>
     </div>
     <ul class="glass border-full">
-        <li class="active"><a href="<?php echo $baseURL ?>">Home</a></li>
-        <li><a href="<?php echo $baseURL . 'about-us.php'?>">About Us</a></li>
+        <li class="<?php if($_SESSION['current-page'] === 'Home') echo 'active' ?>">
+            <a href="<?php echo $baseURL ?>">Home</a>
+        </li>
+        <li class="<?php if($_SESSION['current-page'] === 'About Us') echo 'active' ?>">
+            <a href="<?php echo $baseURL . 'about-us.php'?>">About Us</a>
+        </li>
         <li><a href="#">Resources</a></li>
         <li><a href="#">how</a></li>
         <li><a href="#">livestreaming</a></li>
@@ -18,7 +22,7 @@
         <?php if($user['username']): ?>
         <div class="profile glass">
             <?php if(strlen($user['profile_img']) > 2): ?>
-            <img src="<?php echo $user['profile_img'] ?>" alt="profile imae">
+            <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
             <?php else: ?>
             <p><?php echo $user['profile_img'] ?></p>
             <?php endif ?>
@@ -30,13 +34,12 @@
         <div class="drop_down glass">
             <div class="profile glass">
                 <?php if(strlen($user['profile_img']) > 2): ?>
-                <img src="<?php echo $user['profile_img'] ?>" alt="profile imae">
+                <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
                 <?php else: ?>
                 <p><?php echo $user['profile_img'] ?></p>
                 <?php endif ?>
             </div>
             <a href="./profile.php">Profile ( <?php echo $user['username'] ?> )</a>
-            <a href="#">Global Settings</a>
             <a href="./partials/sign-out.php">Sign Out</a>
         </div>
     </div>
@@ -62,7 +65,7 @@
             <?php if($user['username']): ?>
             <div class="profile glass">
                 <?php if(strlen($user['profile_img']) > 2): ?>
-                <img src="<?php echo $user['profile_img'] ?>" alt="profile imae">
+                <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
                 <?php else: ?>
                 <p><?php echo $user['profile_img'] ?></p>
                 <?php endif ?>
@@ -74,16 +77,31 @@
             <div class="drop_down glass">
                 <div class="profile glass">
                     <?php if(strlen($user['profile_img']) > 2): ?>
-                    <img src="<?php echo $user['profile_img'] ?>" alt="profile imae">
+                    <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
                     <?php else: ?>
                     <p><?php echo $user['profile_img'] ?></p>
                     <?php endif ?>
                 </div>
-                <a href="#">Profile ( <?php echo $user['username'] ?> )</a>
-                <a href="#">Global Settings</a>
+                <a href="./profile.php">Profile ( <?php echo $user['username'] ?> )</a>
                 <a href="./partials/sign-out.php">Sign Out</a>
             </div>
         </div>
     </div>
     <!-- <p>menu</p> -->
 </nav>
+
+<script>
+const links = document.querySelectorAll('nav a')
+
+links.forEach(link => {
+    link.addEventListener('click', function() {
+        const linkValue = this.innerText
+
+        this.classList.add('active')
+
+        // alert('yah!')
+        // $_SESSION['current-page'] = linkValue
+        // alert($_SESSION['current-page'])
+    })
+})
+</script>

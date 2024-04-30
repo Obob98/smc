@@ -63,3 +63,7 @@ function debounce(callback) {
         callback()
     }, 50);
 }
+
+function initApp() {
+
+}

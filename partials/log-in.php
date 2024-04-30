@@ -1,9 +1,11 @@
 <?php
 include('../config/conn.php');
 
-if (!isset($_SESSION['log-in'])) {
-    $_SESSION['log-in'] = ''; 
-}
+if (!isset($_SESSION['log-in']))   $_SESSION['log-in'] = ''; 
+
+if(!isset($_SESSION['login_attempts']) ) $_SESSION['login_attempts'] = '';
+
+if(!isset(($_SESSION['login_locked_until']))) $_SESSION['login_locked_until'] = '';
 
 $username = '';
 
@@ -34,14 +36,14 @@ if(isset($_POST['submit'])){
                         $_SESSION['login_attempts']++;
                     }
                     if ($_SESSION['login_attempts'] >= 3) {
-                        $_SESSION['login_locked_until'] = time() + (1 * 60); 
+                        $_SESSION['login_locked_until'] = time() + (10 * 60); 
                         $_SESSION['log-in'] = 'Login failed. Your account is locked for 10 minutes.';
                     } else {
                         $_SESSION['log-in'] = 'Invalid username or password. Please try again.';
                     }
                 } else {
                     unset($_SESSION['login_attempts']);
-                    unset($_SESSION['login_locked_until']);
+                    unset($_SESSION['login_locked_until']); 
                     
                     $_SESSION['user']['username'] = $username;
                     
@@ -80,11 +82,10 @@ if(isset($_POST['submit'])){
         <div class="form-container">
             <h2>Log in to SMC</h2>
 
-            <div class="timer">
-                <?php if($_SESSION['log-in']): ?>
+            <div
+                class="timer <?php echo $_SESSION['log-in'] || $_SESSION['login_attempts'] || $_SESSION['login_locked_until'] ? 'display-block' : 'display-none' ?>">
                 <h4 class="danger"><?php echo $_SESSION['log-in']; ?></h4>
-                <?php endif ?>
-                <p>10:00</p>
+                <p class="<?php echo $_SESSION['login_locked_until'] ? 'display-block' : 'display-none' ?>">10:00</p>
             </div>
 
             <form action="./log-in.php" method="POST">
@@ -120,6 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 clearInterval(intervalId);
                 timerElement.textContent = '00:00'
                 timerElement.style.display = 'none'
+                timerElement.textContent = 'try again'
                 for (const input of inputs) {
                     input.disabled = false
                 }

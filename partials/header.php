@@ -8,6 +8,10 @@
     }else{
         $user = '';
     }
+
+    if(!isset($_SESSION['current-page'])){
+        $_SESSION['current-page'] = 'Home';
+    }
 ?>
 
 <!DOCTYPE html>

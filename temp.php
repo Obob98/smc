@@ -4,8 +4,8 @@
 
 
 <title>SMC</title>
-<link rel="stylesheet" href="./styles/cube.css">
 <link rel="stylesheet" href="./styles/animation.css">
+<link rel="stylesheet" href="./styles/cube.css">
 <link rel="stylesheet" href="./styles/home.css">
 <link rel="stylesheet" href="./styles/utilities.css">
 <link rel="stylesheet" href="./styles/main.css">
@@ -17,7 +17,6 @@
 <body>
     <header>
         <div class="hero withbackground">
-            <!-- <div class="overlay"></div> -->
 
             <?php include($_SERVER['DOCUMENT_ROOT'] . '/smc/smc/site/partials/nav.php');?>
 

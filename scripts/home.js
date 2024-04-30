@@ -442,3 +442,17 @@ function foldAll() {
 }
 
 // our programs code ends here
+
+function initApp() {
+
+    setHighest()
+
+    breakAmount = imgDivs[0].offsetHeight
+    centerTop = (window.innerHeight - imgDivs[0].offsetHeight) / 2
+
+    testimonialCardsAnimation()
+
+    testimonialCardsAnimationInterval = setInterval(() => {
+        testimonialCardsAnimation()
+    }, 5000);
+}

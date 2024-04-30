@@ -87,9 +87,8 @@ function positionNav(e) {
             fixedNav.style.display = 'flex'
 
             themeDiv.removeChild(themes)
-            // themeDiv.style.position = 'fixed'
+                // themeDiv.style.position = 'fixed'
 
-            console.log({ profile })
             // fixedNav.children[0].insertBefore(themes, profile)
             rightmost.insertBefore(themes, rightmost.children[0])
 
@@ -120,19 +119,4 @@ function closeInput() {
     searchInput.style.width = '0px'
     searchInput.style.opacity = '0'
     searchImg.style.display = 'inline-block'
-}
-
-
-function initApp() {
-
-    setHighest()
-
-    breakAmount = imgDivs[0].offsetHeight
-    centerTop = (window.innerHeight - imgDivs[0].offsetHeight) / 2
-
-    testimonialCardsAnimation()
-
-    testimonialCardsAnimationInterval = setInterval(() => {
-        testimonialCardsAnimation()
-    }, 5000);
 }

@@ -347,6 +347,10 @@ header .hero nav .profile {
     place-content: center;
 }
 
+header .hero nav .profile img {
+    aspect-ratio: 1/1;
+}
+
 header .hero nav .profile p {
     font-size: 32px;
 }

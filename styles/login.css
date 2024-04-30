@@ -1,7 +1,3 @@
-.wrapper .timer {
-    /* display: none; */
-}
-
 .wrapper form input {
     grid-column: span 2;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC</title>
-    <link rel="stylesheet" href="./animation.css">
+    <link rel="stylesheet" href="./styles/animation.css">
     <link rel="stylesheet" href="./styles/about-us.css">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/utilities.css">
@@ -187,6 +187,3 @@
     </main>
 
     <?php include('./partials/footer.php') ?>
-
-    <script src="./scripts/aboutus.js"></script>
-    <script src="./scripts/main.js"></script>
