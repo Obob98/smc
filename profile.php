@@ -2,79 +2,137 @@
     include('./partials/header.php');
  ?>
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMC</title>
-    <!-- <link rel="stylesheet" href="./animation.css"> -->
-    <link rel="stylesheet" href="./styles/about-us.css">
-    <link rel="stylesheet" href="./styles/home.css">
+    <title>Instagram Profile</title>
+
     <link rel="stylesheet" href="./styles/utilities.css">
+    <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="./editprofile.css">
     <link rel="stylesheet" href="./styles/main.css">
 
-    <!-- <script src="./scripts/aboutus.js" defer></script>
-    <script src="./scripts/main.js" defer></script> -->
+    <script src='./scripts/formprocessor.js'></script>
+
 </head>
 
 <body>
-    <header>
-        <div class="hero">
+    <div class="overlay"></div>
+    <nav class="container">
+        <div class="logo">
+            <a href="<?php echo $baseURL?>" class="h1 f-bold">
+                <img src="<?php echo $baseURL . 'assets/imgs/360_F_479093143_1ypd13XBPiPtBJcsprzEhhxflcfqEGna.jpg' ?>"
+                    alt="">
+            </a>
+        </div>
+        <!-- <button id="mode-toggle">
+            theme
+        </button> -->
+    </nav>
+    <div class="profile">
+        <div class="profile-header">
+            <div>
+                <div class="profile-picture glass">
+                    <?php if(strlen($user['profile_img']) > 2): ?>
+                    <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
+                    <?php else: ?>
+                    <p><?php echo $user['profile_img'] ?></p>
+                    <?php endif ?>
+                </div>
+                <div class="profile-info">
+                    <h1><?php echo $user['username'] ?></h1>
+                    <div class="followers">
+                        <small>subscribed</small>
+                    </div>
+                </div>
+            </div>
+            <button id="edit-account">
+                edit account
+            </button>
+        </div>
+        <div class="profile-saved-items">
+            <div class="saved-item_card glass">
+                <img src="./assets/imgs/1671595495693.jpeg" alt="Saved Item 1">
+                <small>saved item title</small>
+                <button class="btn btn-primary unsave-btn">Unsave</button>
+            </div>
+            <div class="saved-item_card glass">
+                <img src="./assets/imgs/9a882aad67ae7150f1255d40968f6c74.png" alt="Saved Item 2">
+                <small>saved item title</small>
+                <button class="btn btn-primary unsave-btn">Unsave</button>
+            </div>
+        </div>
+    </div>
+</body>
 
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/smc/smc/site/partials/nav.php');?>
+<script>
+const editAccountBtn = document.getElementById('edit-account')
 
-    </header>
+editAccountBtn.addEventListener('click', e => {
 
-    <main>
-        <form action="profile.php" method="POST" enctype="multipart/form-data">
-            <label for="image">change profile pic</label>
-            <input type="file" name="image" id="">
-            <button type="submit" name="submit">upload</button>
-        </form>
-    </main>
+    showOverlay()
+})
 
-    <?php 
-        if(isset($_POST['submit'])){
-            if($_FILES['image']['name']){
-                print_r($_FILES['image']);
-                $image_name = $_FILES['image']['name'];
-                $ext = end(explode('.', $image_name));
-                $image_name = 'profpic' . rand(0000000, 9999999) . '.' . $ext; 
-                
-                $source_path = $_FILES['image']['tmp_name'];
+function showOverlay(type, content) {
+    const overlay = document.querySelector('.overlay')
 
-                $destination_path = './images/profiles/'.$image_name;
-                $upload = move_uploaded_file($source_path, $destination_path);
+    // const name = <?php echo $user['username'] ?>;
 
-                if($upload === false){
-                    $_SESSION['upload'] = 'failed to upload';
-                    // echo 'failed to oplad';
-                    // header('Location: ./profile.php');
-                    
-                    die();
-                }else{
-                    // echo 'successfull';
 
-                    $username = $_SESSION['user']['username'];
+    overlay.style.height = '100vh'
+    // if (type === 'text') {
+    //     overlay.innerText = content
+    // } else if (type === 'element') {
+    overlay.innerHTML = `<div class="edit-profile_container">
+        <div class="profile">
+            <div class="profile-header">
+                <div class="profile-picture glass">
+                    <?php if(strlen($user['profile_img']) > 2): ?>
+                    <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
+                    <?php else: ?>
+                    <p><?php echo $user['profile_img'] ?></p>
+                    <?php endif ?>
+                </div>
+                <div class="profile-info">
+                    <h1>Aubrey</h1>
+                </div>
+            </div>
+            <div class="profile-body">
+                <div class="profile-edit">
+                <form action="./editprofile.php" method="POST" enctype="multipart/form-data">
+                        <label for="username">change Username:</label>
+                        <input type="text" id="username" name="username" value="<?php echo $user['username'] ?>"  required>
+                        <label for="email">change Email:</label>
+                        <input type="email" id="email" name="email" value='<?php echo $user['email'] ?> ' required>
+                        <label for="profile-picture">change Profile Picture:</label>
+                        <input type="file" id="profile-picture" name="image" accept="image/*">
+                        <button class="success" type='submit' name='submit'>update account</button>
+                        </form>
+                        <form method="GET" action="deleteuser.php">
+                        <input type="hidden" name="user_id" value="<?php echo $user['username'] ?>" />    
+                        <button id="delete-account">Delete Account</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>`
+    // }
+}
 
-                    $sql = "UPDATE users 
-                    SET profile_img = '$image_name'
-                    WHERE username = '$username'
-                    " ;
+function hideOverlay(type, content) {
+    const overlay = document.querySelector('.overlay')
 
-                    $res = mysqli_query($conn, $sql);
+    overlay.style.height = '0vh'
+    overlay.innerHTML = ''
+}
 
-                    if($res === true){
-                        echo 'succ';
-                        $_SESSION['user']['profile_img'] = $image_name;
+const deleteBtn = document.querySelector('.overlay #delete-account') || document.createElement('div')
 
-                        $_SESSION['profile-updated'] = true;
-                    }
-                }
-            };
-        }
-        else{
-            $image_name = '';
-        }
-    ?>
+deleteBtn.addEventListener('click', () => {
+    alert('failed to delete user')
+    hideOverlay()
+})
+</script>
 
-    <?php include('./partials/footer.php') ?>
+</html>

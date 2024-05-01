@@ -5,7 +5,7 @@
         session_start();
 
         if(!isset($_SESSION['user'])){
-            $_SESSION['user'] = ['username' => '', 'profile_img' => ''];
+            $_SESSION['user'] = ['username' => '', 'profile_img' => '', 'email' => ''];
         }
     }
     catch(Exception $error){

@@ -17,15 +17,16 @@
                 <li><a href="#">Linkedin</a></li>
             </ul>
         </section>
-        <section class="subscribe">
+        <section class="subscribe" id="subscribe">
             <h2>Subscribe to get latest updates</h2>
-            <form action="" class="border-full glass">
-                <input type="text" placeholder="Your email" required>
+            <form action="./partials/subscribe.php" method="POST" class="border-full glass">
+                <input type="email" name="email" placeholder="Your email" required>
                 <input type="submit" value="Subscribe" class="btn-primary border-full shadow-large glass">
             </form>
         </section>
     </div>
 </footer>
 </body>
+<script src='./scripts/formprocessor.js'></script>
 
 </html>

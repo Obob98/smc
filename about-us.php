@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMC</title>
+    <title>SMC - about-us</title>
     <link rel="stylesheet" href="./styles/animation.css">
     <link rel="stylesheet" href="./styles/about-us.css">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/utilities.css">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./partials/extra-nav.css">
 
-    <script src="./scripts/aboutus.js" defer></script>
     <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/aboutus.js" defer></script>
 </head>
 
 <body>
@@ -22,21 +23,8 @@
 
             <div class="hero-content container">
                 <div class="left">
-                    <div class="dots">
-                        <div class="current"></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <h1 class="h1">Empowering Teens for Safe Social Media Use</h1>
-                    <button class="btn-primary glass f-sbold border-full">
-                        join us
-                    </button>
+                    <h1 class="h1 btn btn-primary">Get To Know Us </h1>
                 </div>
-                <div class="right">
-                    <p>
-                        we're dedicated to helping teenagers navigate the digital world safely.
-                </div>
-                </p>
                 <div class="floater">
                     <form action="">
                         <input type="search" placeholder="Search" class="glass border-full">
@@ -80,12 +68,182 @@
                 </div>
             </div>
         </section>
-
-        <section class="video">
-            <div class="vid">
-                <video src="./assets/videos/Keeping your teenager safe online - Dove Men+Care.mp4"></video>
-                <span class="glass">Play</span>
+        <section class="about" id="about">
+            <div class="container">
+                <!-- <div class="title"> -->
+                <!-- A little more About us
+                </div> -->
+                <div class="content">
+                    <article>
+                        <h2>Our ___________ Vision</h2>
+                        <p>
+                            Our vision is a world where teenagers can harness the power of social media confidently and
+                            responsibly. We believe that by equipping them with the knowledge and tools to stay safe
+                            online, we can create a generation of informed digital citizens who can thrive in today's
+                            interconnected world.
+                    </article>
+                </div>
             </div>
+        </section>
+        <section class="about" id="about">
+            <div class="container">
+                <!-- <div class="title"> -->
+                <!-- A little more About us
+                </div> -->
+                <div class="content">
+                    <article>
+                        <h2>Join Our Community |- <a href="#subscribe"
+                                class="btn btn-primary glass f-sbold border-full">
+                                join newsletter
+                            </a></h2>
+                        <p>
+                            Become a part of our growing community and stay updated on the latest news, events, and
+                            resources to help you and your teen navigate the digital world safely. Sign up for our
+                            monthly newsletter to receive valuable insights and tips directly to your inbox.
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="our-supporters" id="our-suppoters">
+            <!-- <div class="container title">
+                Our Supporters
+            </div> -->
+            <div class="logos">
+                <!-- <div class="one"> -->
+                <div class="logos-slider">
+                    <div>
+                        <div>
+                            <div class="number">2012</div>
+                            <div class="number-subtitle">Founded</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">150+</div>
+                            <div class="number-subtitle">Team Members</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">12+</div>
+                            <div class="number-subtitle">Years of client Partnership</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logos-slider">
+                    <div>
+                        <div>
+                            <div class="number">2012</div>
+                            <div class="number-subtitle">Founded</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">150+</div>
+                            <div class="number-subtitle">Team Members</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="number">12+</div>
+                            <div class="number-subtitle">Years of client Partnership</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback" id="testimonials">
+            <div class="container">
+                <div class="title">
+                    meet our team
+                </div>
+                <div class="cards">
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/founder3.jpg" alt="img"></div>
+
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Aubrey Nyasulu</p>
+                                <small>CEO, O inc.</small>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/3.jpg" alt="img"></div>
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Jane Phalady</p>
+                                <small>Mom, Activist</small>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/4.jpg" alt="img"></div>
+
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Matt Phiri</p>
+                                <small>CTO, The It Company</small>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/founder1.jpg" alt="img"></div>
+
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Owen Nyasulu</p>
+                                <small>CEO, Pachepa Estate Agency</small>
+                            </figcaption>
+
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/founder2.jpg" alt="img"></div>
+
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Noel Bamusi</p>
+                                <small>Moderator, COO O.inc</small>
+                            </figcaption>
+
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="head">
+                            <div class="img"><img src="./assets/imgs/testimonials/1.jpg" alt="img"></div>
+
+                        </div>
+                        <div class="typography">
+                            <figcaption>
+                                <p class="f-sbold">Venus Gabriel</p>
+                                <small>CEO, Women Empowerment Organisation</small>
+                            </figcaption>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="dots">
+                    <div class="active"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
         </section>
 
         <section class="faq" id="faq">
@@ -152,38 +310,6 @@
             </div>
         </section>
 
-        <section class="contact">
-            <div class="container">
-                <div class="title">Contact Us</div>
-                <div class="content">
-                    <div class="ill-3d">some 3d</div>
-                    <form action="">
-                        <label for="">
-                            First Name
-                            <input type="text" placeholder="John" required>
-                        </label>
-                        <label for="">
-                            Last Name
-                            <input type="text" placeholder="Doe">
-                        </label>
-                        <label for="">
-                            Email
-                            <input type="email" placeholder="johndoe@gmail.com" required>
-                        </label>
-                        <label for="">
-                            Subject
-                            <input type="text" placeholder="Lorem, ipsum dolor.">
-                        </label>
-                        <label for="" class="textarea">
-                            message
-                            <textarea name="" id="" cols="30" rows="10" required></textarea>
-                        </label>
-
-                        <button class="btn-secondary border-full">Send</button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
     <?php include('./partials/footer.php') ?>

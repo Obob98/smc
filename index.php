@@ -3,18 +3,20 @@
  ?>
 
 
-<title>SMC</title>
+<title>SMC - home</title>
 <link rel="stylesheet" href="./styles/cube.css">
 <link rel="stylesheet" href="./styles/animation.css">
 <link rel="stylesheet" href="./styles/home.css">
 <link rel="stylesheet" href="./styles/utilities.css">
 <link rel="stylesheet" href="./styles/main.css">
+<link rel="stylesheet" href="./partials/extra-nav.css">
 
 <script src="./scripts/home.js" defer></script>
 <script src="./scripts/main.js" defer></script>
 </head>
 
 <body>
+    <div class="overlay"> </div>
     <header>
         <div class="hero withbackground">
             <!-- <div class="overlay"></div> -->
@@ -30,15 +32,15 @@
                         <div></div>
                     </div>
                     <h1 class="h1">Empowering Teens for Safe Social Media Use</h1>
-                    <button class="btn-primary glass f-sbold border-full">
-                        join us
-                    </button>
+                    <a href="#subscribe" class="btn btn-primary glass f-sbold border-full">
+                        join our newsletter
+                    </a>
                 </div>
                 <div class="right">
                     <p>
                         we're dedicated to helping teenagers navigate the digital world safely.
+                    </p>
                 </div>
-                </p>
                 <div class="floater">
                     <form action="">
                         <input type="search" placeholder="Search" class="glass border-full">
@@ -523,7 +525,6 @@
             <div class="container">
                 <div class="title">Contact Us</div>
                 <div class="content">
-                    <div class="ill-3d">some 3d</div>
                     <form action="">
                         <label for="">
                             First Name

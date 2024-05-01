@@ -1,5 +1,5 @@
 <?php 
-    $baseURL = '/smc/smc/site/';
+    $baseURL = '/smc/site/';
 
     include($_SERVER['DOCUMENT_ROOT'] . '/smc/smc/site/config/conn.php');
 

@@ -24,6 +24,7 @@
     line-height: 1.5;
     font-weight: 400;
     color-scheme: light dark;
+    --color-opacity-1: #0001;
     --color-bg-primary: #000;
     /* 0c1013 */
     --color-bg-secondary: #0c1013;
@@ -68,9 +69,11 @@ img {
 html,
 body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
+    position: relative;
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
@@ -145,6 +148,24 @@ input::placeholder {
     font-weight: bold;
 }
 
+.overlay {
+    margin-inline: auto;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+    position: fixed;
+    inset: 0;
+    /* transform: scale(0); */
+    height: 0;
+    /* opacity: 0; */
+    display: grid;
+    place-content: center;
+    z-index: 9999999999999999;
+    background: var(--color-bg-primary);
+    /* background: red; */
+    color: var(--color-text-primary);
+}
+
 
 /* header section */
 
@@ -181,6 +202,11 @@ header .hero nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: visible;
+}
+
+header .hero nav.mobile {
+    display: none;
 }
 
 header .hero nav.fixed {
@@ -248,9 +274,15 @@ header .hero .hero-content {
 /*  */
 
 header .hero nav ul {
-    padding: 16px 32px;
+    padding: 0px 32px;
     display: flex;
     gap: 32px;
+    overflow: visible;
+}
+
+header .hero nav ul li {
+    padding: 16px;
+    height: 100%;
 }
 
 header .hero nav ul a {
@@ -504,7 +536,7 @@ footer .container section.subscribe form input {
     border: none;
 }
 
-footer .container section.subscribe form input[type="text"] {
+footer .container section.subscribe form input[type="email"] {
     padding-left: 32px;
     height: 70px;
     height: 60px;
@@ -536,5 +568,53 @@ footer .container section.subscribe form input[type="submit"] {
     header .hero .hero-content .floater form .img {
         border: 2px solid red;
         filter: unset;
+    }
+}
+
+@media (max-width: 1120px) {
+    header .hero nav {
+        display: none;
+        padding-inline: 32px;
+    }
+    header .hero nav.mobile {
+        display: flex;
+    }
+    header .hero nav.mobile .menu {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-inline: 32px;
+    }
+    header .hero nav.mobile .menu ul {
+        display: none;
+        position: absolute;
+        text-wrap: nowrap;
+        width: fit-content;
+        top: 70px;
+    }
+    header .hero .hero-content {
+        padding-inline: 32px;
+    }
+    header .hero .hero-content {
+        padding-inline: 32px;
+        /* flex-direction: column; */
+    }
+    header .hero .hero-content .right {
+        display: none;
+    }
+    footer .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 850px) {
+    header .hero nav.fixed {
+        display: none !important;
+    }
+    header .floater {
+        display: none !important;
     }
 }

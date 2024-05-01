@@ -1,0 +1,29 @@
+
+
+nav ul li svg {
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.dropdown-content {
+    padding: 32px 64px;
+    display: none;
+    position: absolute;
+    top: 57px;
+    left: 0;
+    background: var(--color-bg-primary);
+    border-radius: 32px;
+    width: 100%;
+    z-index: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary) !important;
+}

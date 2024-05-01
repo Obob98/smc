@@ -369,7 +369,7 @@ main section.feedback .container {
 }
 
 main section.feedback .container .cards {
-    width: 1120px;
+    max-width: 1120px;
     /* max-height: 300px; */
     display: flex;
     flex-wrap: wrap;
@@ -571,10 +571,12 @@ main section.latest-articles .container {
 
 main section.latest-articles .articles {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
 }
 
 main section.latest-articles .articles .card {
+    min-width: 300px;
     flex: 1;
     padding: 12px;
     border-radius: 32px;
@@ -669,4 +671,65 @@ main section.contact .container .content form label textarea {
 
 main section.contact .container .content form .textarea {
     grid-column: span 2;
+}
+
+
+/* Set flex direction to column for containers below 1120px */
+
+@media (max-width: 1120px) {
+    /* main section.about .container,
+  main section.our-programs .container,
+  main section.our-supporters .logos .logos-slider>div,
+  main section.latest-articles .articles,
+  main section.contact .container .content {
+    flex-direction: column;
+  } */
+    /* Adjust padding or margins for smaller screens */
+    main section.about .container,
+    main section.why-us .wraper .content .titles,
+    main section.our-programs .container .content,
+    main section.our-programs .container .content .typography,
+    main section.our-programs .container .content .wrapper,
+    main section.our-supporters .logos,
+    main section.latest-articles .articles,
+    main section.contact .container .content {
+        padding: 0 20px;
+        /* Adjust padding as needed */
+    }
+    main section.our-programs .container .content .typography>div,
+    main section.our-programs .container .content .wrapper .img {
+        /* width: 100%; */
+        /* Adjust width for smaller screens */
+    }
+    main section.our-programs .container .content .wrapper .img {
+        width: 100vw;
+    }
+    main section,
+    footer {
+        padding-inline: 32px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1000px) {
+    main section.about .content article {
+        flex-direction: column !important;
+    }
+    main section.faq .container .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    main section.contact .container .content {
+        flex-direction: column;
+    }
+    .faq .cube-container {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    main section.our-programs .container .content .wrapper .img {
+        display: none;
+    }
 }

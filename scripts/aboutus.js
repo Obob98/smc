@@ -1,6 +1,6 @@
-const vidContainer = document.querySelector('.video .vid')
-const vidPlayButton = document.querySelector('.video .vid span')
-const video = document.querySelector('.video .vid video')
+const vidContainer = document.querySelector('.video .vid') || document.createElement('div')
+const vidPlayButton = document.querySelector('.video .vid span') || document.createElement('div')
+const video = document.querySelector('.video .vid video') || document.createElement('div')
 
 vidContainer.addEventListener('mousemove', e => {
 
@@ -66,4 +66,51 @@ function debounce(callback) {
 
 function initApp() {
 
+}
+
+// ##########################################
+// Set your API key
+
+function youtubeContentWebService() {
+    var apiKey = '';
+    // Array of search queries
+    var queries = ['facebook online safety tips', 'instagram online safety tips', 'tiktok online safety tips', 'messenger online safety'];
+
+    // Select a random query from the array
+    var randomQuery = queries[Math.floor(Math.random() * queries.length)];
+
+    // Set the endpoint URL
+    var endpoint = 'https://www.googleapis.com/youtube/v3/search';
+    var params = {
+        part: 'snippet',
+        q: encodeURIComponent(randomQuery),
+        key: apiKey,
+        maxResults: 1, // Adjust as needed
+        type: 'video'
+    };
+
+    // Make the API request
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', endpoint + '?' + new URLSearchParams(params), true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.items.length > 0) {
+                var videoId = response.items[0].id.videoId;
+                var videoUrl = 'https://www.youtube.com/embed/' + videoId;
+
+                // Create a video element
+                var videoPlayer = document.getElementById('videoPlayer');
+                video.src = videoUrl;
+            } else {
+                console.error('No videos found.');
+            }
+        } else {
+            console.error('Error:', xhr.statusText);
+        }
+    };
+    xhr.onerror = function () {
+        console.error('Request failed.');
+    };
+    xhr.send();
 }

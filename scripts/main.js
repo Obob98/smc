@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+    if (typeof initApp === 'undefined') return
     initApp()
 })
 
@@ -6,6 +7,7 @@ let checkHeader = true
 
 const header = document.querySelector('header')
 const fixedNav = document.querySelector('nav.fixed')
+const menuBtn = document.querySelector('nav.mobile ') || document.createElement('div')
 
 const themeDiv = document.querySelector('.floater')
 const themes = document.querySelector('.themes');
@@ -24,6 +26,17 @@ window.addEventListener('scroll', e => {
 
     positionNav(e)
 
+})
+
+menuBtn.addEventListener('click', function () {
+    const ul = document.querySelector('.mobile ul')
+    console.log({ ul })
+
+    if (ul.style.display === 'block') {
+        ul.style.display = 'none'
+    } else {
+        ul.style.display = 'block'
+    }
 })
 
 themeToggle.addEventListener('click', setDarkmode);
@@ -87,7 +100,7 @@ function positionNav(e) {
             fixedNav.style.display = 'flex'
 
             themeDiv.removeChild(themes)
-                // themeDiv.style.position = 'fixed'
+            // themeDiv.style.position = 'fixed'
 
             // fixedNav.children[0].insertBefore(themes, profile)
             rightmost.insertBefore(themes, rightmost.children[0])
