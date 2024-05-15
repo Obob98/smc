@@ -132,7 +132,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background: var(--color-accent);
+    background: var(--color-accent) !important;
     color: var(--undecided, #fff);
 }
 

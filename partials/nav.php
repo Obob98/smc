@@ -23,7 +23,7 @@
             </a>
             <div class="dropdown-content">
                 <a href="<?php echo $baseURL . 'how.php'?>">How Parents Can Help</a>
-                <a href="<?php echo $baseURL . 'popular-sites.php'?>">Articles</a>
+                <a href="<?php echo $baseURL . 'popular-sites.php'?>">Safety techniques on popular social sites</a>
                 <a href="<?php echo $baseURL . 'legisltive.php'?>"> Legislation and Guidance</a>
                 <a href="#"> Livestreaming</a>
             </div>
@@ -82,7 +82,7 @@
                 </a>
                 <div class="dropdown-content">
                     <a href="<?php echo $baseURL . 'how.php'?>">How Parents Can Help</a>
-                    <a href="<?php echo $baseURL . 'popular-sites.php'?>">Articles</a>
+                    <a href="<?php echo $baseURL . 'popular-sites.php'?>">Safety techniques on popular social sites</a>
                     <a href="#"> Legislation and Guidance</a>
                     <a href="#"> Livestreaming</a>
                 </div>
@@ -147,7 +147,7 @@
                 </a>
                 <div class="dropdown-content">
                     <a href="<?php echo $baseURL . 'how.php'?>">How Parents Can Help</a>
-                    <a href="<?php echo $baseURL . 'popular-sites.php'?>">Articles</a>
+                    <a href="<?php echo $baseURL . 'popular-sites.php'?>">Safety techniques on popular social sites</a>
                     <a href="<?php echo $baseURL . 'legisltive.php'?>"> Legislation and Guidance</a>
                     <a href="#"> Livestreaming</a>
                 </div>

@@ -1,0 +1,8 @@
+.profile{
+    color: var(--color-bg-primary) !important;
+    background: var(--color-text-primary) !important;
+    backdrop-filter: blur(4px);
+    border-radius: 32px;
+    height: fit-content;
+    margin-bottom: 50px !important;
+}

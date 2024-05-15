@@ -152,3 +152,9 @@ background: rgba(0,11,20,.8); */
 .display-none {
     display: none;
 }
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}

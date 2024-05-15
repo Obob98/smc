@@ -2,7 +2,6 @@
     include('./partials/header.php');
  ?>
 
-
 <head>
     <title>SMC - home</title>
     <link rel="stylesheet" href="./styles/main.css">
@@ -90,7 +89,6 @@
                 Our Supporters
             </div> -->
             <div class="logos">
-                <!-- <div class="one"> -->
                 <div class="logos-slider">
                     <div>
                         <div>
@@ -131,16 +129,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- </div> -->
-                <!-- <div class="two"> -->
-                <!-- <img src="./assets/icons/Logo-1.png" alt="Logo-1">
-                <img src="./assets/icons/Logo-2.png" alt="Logo-2">
-                <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                <img src="./assets/icons/Logo-3.png" alt="Logo-3">
-                <img src="./assets/icons/Logo-4.png" alt="Logo-4.png"> -->
-                <!-- </div> -->
             </div>
+
         </section>
+
 
         <section class="our-programs" id="programs">
             <div class="container">
@@ -387,6 +379,31 @@
                 <img src="./assets/icons/Logo-4.png" alt="Logo-4.png"> -->
                 <!-- </div> -->
             </div>
+            <div class="logos to-right">
+                <!-- <div class="one"> -->
+                <div class="logos-slider">
+                    <img src="./assets/icons/Logo-1.png" alt="Logo-1">
+                    <img src="./assets/icons/Logo-2.png" alt="Logo-2">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">
+                </div>
+                <div class="logos-slider">
+                    <img src="./assets/icons/Logo-1.png" alt="Logo-1">
+                    <img src="./assets/icons/Logo-2.png" alt="Logo-2">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                    <img src="./assets/icons/Logo-4.png" alt="Logo-4.png">
+                </div>
+                <!-- </div> -->
+                <!-- <div class="two"> -->
+                <!-- <img src="./assets/icons/Logo-1.png" alt="Logo-1">
+                <img src="./assets/icons/Logo-2.png" alt="Logo-2">
+                <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                <img src="./assets/icons/Logo-3.png" alt="Logo-3">
+                <img src="./assets/icons/Logo-4.png" alt="Logo-4.png"> -->
+                <!-- </div> -->
+            </div>
         </section>
 
         <section class="faq" id="faq">
@@ -478,10 +495,12 @@
                             </div>
                             <div class="additional-information">
                                 <p>
-                                    <span>By</span>
-                                    User Name
+                                    <span>#</span>
+                                    Facebook
                                 </p>
-                                <small>1hr ago</small>
+                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
+                                    <button class="btn glass">Read More</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -495,10 +514,12 @@
                             </div>
                             <div class="additional-information">
                                 <p>
-                                    <span>By</span>
-                                    User Name
+                                    <span>#</span>
+                                    Twitter
                                 </p>
-                                <small>1hr ago</small>
+                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
+                                    <button class="btn glass">Read More</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -512,10 +533,12 @@
                             </div>
                             <div class="additional-information">
                                 <p>
-                                    <span>By</span>
-                                    User Name
+                                    <span>#</span>
+                                    Instagram
                                 </p>
-                                <small>1hr ago</small>
+                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
+                                    <button class="btn glass">Read More</button>
+                                </a>
                             </div>
                         </div>
                     </div>

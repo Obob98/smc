@@ -1,4 +1,12 @@
-<?php include('./partials/header.php') ?>
+<?php
+ include('./partials/header.php');
+
+ $sql = 'SELECT * FROM articles';
+
+    $query = mysqli_query($conn, $sql);
+    
+    $articles = mysqli_fetch_all($query, MYSQLI_ASSOC);
+  ?>
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +18,7 @@
     <link rel="stylesheet" href="./styles/utilities.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./partials/extra-nav.css">
+    <link rel="stylesheet" href="./styles/articles.css">
 
     <script src="./scripts/aboutus.js" defer></script>
     <script src="./scripts/main.js" defer></script>
@@ -23,19 +32,13 @@
 
             <div class="hero-content container">
                 <div class="left">
-                    <div class="dots">
-                        <div class="current"></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <h1 class="h1">Empowering Teens for Safe Social Media Use</h1>
-                    <button class="btn-primary glass f-sbold border-full">
-                        join us
-                    </button>
+                    <h1 class="h1">Search our
+                        online database for the latest techniques to stay safe.
+                    </h1>
                 </div>
                 <div class="right">
                     <p>
-                        we're dedicated to helping teenagers navigate the digital world safely.
+                        Get access to over 30 million resources
                 </div>
                 </p>
                 <div class="floater">
@@ -59,6 +62,73 @@
         </div>
     </header>
     <main class="">
+        <section class="latest-articles">
+            <div class="container">
+                <form action="">
+                    <input type="search" name="search" id="" class="glass">
+                </form>
+                <div class="articles">
+                    <?php foreach($articles as $article): ?>
+                    <div class="card glass ">
+                        <a href="<?php echo $baseURL . 'article.php?title=' . $article['title'] . '&tag=' . $article['tag'] ?>"
+                            class="img">
+                            <img src="./assets/imgs/1671595495693.jpeg" alt="">
+                        </a>
+                        <div class="typography">
+                            <a href="<?php echo $baseURL . 'article.php?title=' . $article['title'] . '&tag=' . $article['tag'] ?>"
+                                class="blog-title  ">
+                                <p class="f-bold text-ellipsis"><?php echo $article['title'] ?></p>
+                            </a>
+                            <div class="additional-information">
+                                <a
+                                    href="<?php echo $baseURL . '$article.php?title=' . $article['title'] . 'tag=' . $article['tag'] ?>">
+                                    <span>#</span>
+                                    <?php echo $article['tag'] ?>
+                                </a>
+                                <button href="#" class="btn glass">save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+
+                    <!-- <div class="card glass">
+                        <div class="img">
+                            <img src="./assets/imgs/safe-data-sharing-practices-how-avoid-data-leaks.jpg" alt="">
+                        </div>
+                        <div class="typography">
+                            <div class="blog-title">
+                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
+                            </div>
+                            <div class="additional-information">
+                                <p>
+                                    <span>#</span>
+                                    Twitter
+                                </p>
+                                <button href="#" class="btn glass">save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card glass">
+                        <div class="img">
+                            <img src="./assets/imgs/cyberbullying.png" alt="">
+                        </div>
+                        <div class="typography">
+                            <div class="blog-title">
+                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
+                            </div>
+                            <div class="additional-information">
+                                <p>
+                                    <span>#</span>
+                                    Instagram
+                                </p>
+                                <button href="#" class="btn glass">save</button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
 
 
-        <?php include('./partials/footer.php') ?>
+    <?php include('./partials/footer.php') ?>

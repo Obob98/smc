@@ -1,0 +1,28 @@
+header{
+    background-image: url('../assets/imgs/articles/article-writing.jpg') !important;
+}
+
+.floater form{
+    display: none !important;
+}
+
+main section.latest-articles{
+    padding-top: 100px;
+    background: var(--color-bg-primary) !important;
+}
+
+main section.latest-articles .container{
+    gap: 64px;
+}
+
+main section.latest-articles form{
+    width: fit-content;
+    margin-inline: auto;
+}
+
+main section.latest-articles form input{
+    width: 500px;
+    padding: 24px;
+    border: none;
+    border-radius: 32px;
+}

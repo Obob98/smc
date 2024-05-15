@@ -331,6 +331,17 @@ main section.our-supporters .logos .logos-slider {
     animation: 32s slide linear infinite;
 }
 
+main section.our-supporters .logos.to-right {
+    padding: 0;
+    margin-top: -60px;
+}
+
+main section.our-supporters .logos.to-right .logos-slider {
+    display: inline-block;
+    animation: 32s slidetoright linear infinite;
+}
+
+
 main section.our-supporters .logos .logos-slider>div {
     display: inline-block;
 }
@@ -591,6 +602,7 @@ main section.latest-articles .articles .card.active {
 }
 
 main section.latest-articles .articles .card .img {
+    display: block;
     aspect-ratio: 3/2;
     border-radius: 32px;
     overflow: hidden;
@@ -608,6 +620,7 @@ main section.latest-articles .articles .card .typography .blog-title {}
 main section.latest-articles .articles .card .typography .additional-information {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 main section.contact {
