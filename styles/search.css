@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    width: 100px;
+}
+
+.container {
+    max-width: 800px !important;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container form {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+}
+
+input[type="search"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 32px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}

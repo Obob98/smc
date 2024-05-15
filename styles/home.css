@@ -143,6 +143,7 @@ main section.why-us .wraper {
 }
 
 main section.why-us .wraper .content {
+
     padding-top: 80px;
     width: 100%;
     position: -webkit-sticky;
@@ -151,6 +152,7 @@ main section.why-us .wraper .content {
 }
 
 main section.why-us .wraper .content>div {
+
     z-index: 1;
     width: 100%;
     position: relative;
@@ -173,6 +175,7 @@ main section.why-us .wraper .content .titles>h2 {
 }
 
 main section.why-us .wraper .cards {
+
     display: block;
     height: 300px;
     padding-top: 20px;

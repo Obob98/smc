@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
     $birthday = $_POST['birthday'];
     
     if(!empty($firstname) && !empty($lastname) && !empty($username) && !empty($email) && !empty($password) && !empty($birthday)){
-        $sql = "INSERT INTO users values(DEFAULT, '$firstname', '$lastname', '$username', '$email', NULL, '$password', '$birthday', DEFAULT)"; 
+        $sql = "INSERT INTO users values(DEFAULT, '$firstname', '$lastname', '$username', '$email', '$password', Null, '$birthday')"; 
 
         try{
             $res = mysqli_query($conn, $sql);
@@ -29,6 +29,7 @@ if(isset($_POST['submit'])){
             }
 
             $_SESSION['user']['username'] = $username;
+            $_SESSION['user']['email'] = $email;
             $_SESSION['sign-up'] = 'created account successfully';
             echo 'redirecting';
             header("Location: ../on-boarding.php");

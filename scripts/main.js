@@ -48,6 +48,19 @@ searchImg.addEventListener('click', () => {
     openInput()
 })
 
+let timer
+
+searchInput.addEventListener('keyup', e => {
+    if (timer) clearTimeout(timer)
+
+    const value = e.target.value
+    if (value?.length) {
+        timer = setTimeout(() => {
+            window.location.href = './search.php?value=' + value
+        }, 500)
+    }
+})
+
 searchInput.addEventListener('blur', () => {
     const isThemeDivFixed = themeDiv.classList.contains('fixed')
 

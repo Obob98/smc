@@ -3,16 +3,18 @@
  ?>
 
 
-<title>SMC - home</title>
-<link rel="stylesheet" href="./styles/cube.css">
-<link rel="stylesheet" href="./styles/animation.css">
-<link rel="stylesheet" href="./styles/home.css">
-<link rel="stylesheet" href="./styles/utilities.css">
-<link rel="stylesheet" href="./styles/main.css">
-<link rel="stylesheet" href="./partials/extra-nav.css">
+<head>
+    <title>SMC - home</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- <link rel="stylesheet" href="./temp.css"> -->
+    <link rel="stylesheet" href="./styles/cube.css">
+    <link rel="stylesheet" href="./styles/animation.css">
+    <link rel="stylesheet" href="./styles/utilities.css">
+    <link rel="stylesheet" href="./partials/extra-nav.css">
+    <link rel="stylesheet" href="./styles/home.css">
 
-<script src="./scripts/home.js" defer></script>
-<script src="./scripts/main.js" defer></script>
+    <script src="./scripts/home.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
 </head>
 
 <body>
@@ -140,6 +142,54 @@
             </div>
         </section>
 
+        <section class="our-programs" id="programs">
+            <div class="container">
+                <div class="title">
+                    Our Programs
+                </div>
+                <div class="content">
+                    <div class="typography">
+                        <div class="one">
+                            <h2>Partnerships and Collaborations</h2>
+                            <small>
+                                <sup>_______</sup> We collaborate with schools, community organizations, and industry
+                                partners to amplify our impact and reach a wider audience with our online safety
+                                initiatives.
+                            </small>
+                        </div>
+                        <div class="two">
+                            <h2>Donations and Fundraising Campaigns</h2>
+                            <small>
+                                <sup>_______</sup> As a nonprofit organization, we rely on the generous support of
+                                individuals and organizations to fund our programs and initiatives.
+                            </small>
+                        </div>
+                        <div class="three">
+                            <h2>Subscription Program</h2>
+                            <small>
+                                <sup>_______</sup> Our subscription program offers teenagers access to premium content
+                                and resources designed to deepen their understanding of online safety.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="wrapper">
+                        <div class="img img-one">
+                            <img src="./assets/imgs/our programs/Tips-to-Protect-Yourself-on-Facebook-Instagram_2022-05-11-152121_sccc.jpg"
+                                alt="">
+                        </div>
+                        <div class="img img-two">
+                            <img src="./assets/imgs/our programs/digital-footprint-2.jpg" alt="">
+                        </div>
+                        <div class="img img-three">
+                            <img src="./assets/imgs/our programs/1.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <section class="why-us">
             <div class="wraper">
                 <div class="content sticky-div">
@@ -198,54 +248,6 @@
 
             </div>
             </div>
-            </div>
-        </section>
-
-        <section class="our-programs" id="programs">
-            <div class="container">
-                <div class="title">
-                    Our Programs
-                </div>
-                <div class="content">
-                    <div class="typography">
-                        <div class="one">
-                            <h2>Partnerships and Collaborations</h2>
-                            <small>
-                                <sup>_______</sup> We collaborate with schools, community organizations, and industry
-                                partners to amplify our impact and reach a wider audience with our online safety
-                                initiatives.
-                            </small>
-                        </div>
-                        <div class="two">
-                            <h2>Donations and Fundraising Campaigns</h2>
-                            <small>
-                                <sup>_______</sup> As a nonprofit organization, we rely on the generous support of
-                                individuals and organizations to fund our programs and initiatives.
-                            </small>
-                        </div>
-                        <div class="three">
-                            <h2>Subscription Program</h2>
-                            <small>
-                                <sup>_______</sup> Our subscription program offers teenagers access to premium content
-                                and resources designed to deepen their understanding of online safety.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="wrapper">
-                        <div class="img img-one">
-                            <img src="./assets/imgs/our programs/Tips-to-Protect-Yourself-on-Facebook-Instagram_2022-05-11-152121_sccc.jpg"
-                                alt="">
-                        </div>
-                        <div class="img img-two">
-                            <img src="./assets/imgs/our programs/digital-footprint-2.jpg" alt="">
-                        </div>
-                        <div class="img img-three">
-                            <img src="./assets/imgs/our programs/1.jpg" alt="">
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </section>
 
@@ -525,6 +527,7 @@
             <div class="container">
                 <div class="title">Contact Us</div>
                 <div class="content">
+                    <div class="ill-3d">some 3d</div>
                     <form action="">
                         <label for="">
                             First Name

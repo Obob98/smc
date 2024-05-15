@@ -1,5 +1,13 @@
 <?php 
     include('./partials/header.php');
+
+    $username = $user['username'];
+
+    $sql = "SELECT * FROM users WHERE username='$username'";
+
+    $query = mysqli_query($conn, $sql);
+
+    $info = mysqli_fetch_assoc($query);
  ?>
 
 
@@ -35,15 +43,15 @@
             <div>
                 <div class="profile-picture glass">
                     <?php if(strlen($user['profile_img']) > 2): ?>
-                    <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
+                    <img src="<?php echo $baseURL .'images/profiles/' . $info['profile_img'] ?>" alt="profile imae">
                     <?php else: ?>
                     <p><?php echo $user['profile_img'] ?></p>
                     <?php endif ?>
                 </div>
                 <div class="profile-info">
-                    <h1><?php echo $user['username'] ?></h1>
+                    <h1><?php echo $info['firstname']. ' ' . $info['lastname'] ?></h1>
                     <div class="followers">
-                        <small>subscribed</small>
+                        <small><?php echo '@' . $info['username'] ?></small>
                     </div>
                 </div>
             </div>
@@ -89,9 +97,9 @@ function showOverlay(type, content) {
             <div class="profile-header">
                 <div class="profile-picture glass">
                     <?php if(strlen($user['profile_img']) > 2): ?>
-                    <img src="<?php echo $baseURL .'images/profiles/' . $user['profile_img'] ?>" alt="profile imae">
+                    <img src="<?php echo $baseURL .'images/profiles/' . $info['profile_img'] ?>" alt="profile imae">
                     <?php else: ?>
-                    <p><?php echo $user['profile_img'] ?></p>
+                    <p><?php echo $info['profile_img'] ?></p>
                     <?php endif ?>
                 </div>
                 <div class="profile-info">
@@ -102,15 +110,15 @@ function showOverlay(type, content) {
                 <div class="profile-edit">
                 <form action="./editprofile.php" method="POST" enctype="multipart/form-data">
                         <label for="username">change Username:</label>
-                        <input type="text" id="username" name="username" value="<?php echo $user['username'] ?>"  required>
+                        <input type="text" id="username" name="username" value="<?php echo $info['username'] ?>"  required>
                         <label for="email">change Email:</label>
-                        <input type="email" id="email" name="email" value='<?php echo $user['email'] ?> ' required>
+                        <input type="email" id="email" name="email" value="<?php echo $info['email'] ?>" required>
                         <label for="profile-picture">change Profile Picture:</label>
                         <input type="file" id="profile-picture" name="image" accept="image/*">
                         <button class="success" type='submit' name='submit'>update account</button>
                         </form>
                         <form method="GET" action="deleteuser.php">
-                        <input type="hidden" name="user_id" value="<?php echo $user['username'] ?>" />    
+                        <input type="hidden" name="user_id" value="<?php echo $info['username'] ?>" />    
                         <button id="delete-account">Delete Account</button>
                         </form>
                 </div>

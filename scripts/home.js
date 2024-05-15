@@ -41,7 +41,7 @@ const titlesState = {
     }
 }
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     updateScrollDirection()
 
     const currentScrollY = window.scrollY || window.pageYOffset
@@ -52,7 +52,7 @@ window.addEventListener('scroll', function() {
         for (let i = 0; i < childrenDivs.length; i++) {
             for (let j = i; j < childrenDivs.length; j++) {
                 translateCards(i, j, currentScrollY)
-                    // translateTitles(i, j, currentScrollY)
+                // translateTitles(i, j, currentScrollY)
             }
         }
     }
@@ -244,7 +244,7 @@ let lastScrollTop = 0
 let curentDiv = content
 
 while (curentDiv) {
-    if (typeof(curentDiv.offsetTop) !== 'number') break
+    if (typeof (curentDiv.offsetTop) !== 'number') break
 
     lastScrollTop += curentDiv.offsetTop
 
@@ -340,10 +340,10 @@ window.addEventListener('scroll', () => {
         if (currImgDiv === 0) {
             if (scrollDirection === 'down') {
                 setHighest()
-                    // foldsingle(imgDivs[0])
+                // foldsingle(imgDivs[0])
             } else {
                 setLowest()
-                    // unfoldsingle(imgDivs[0])
+                // unfoldsingle(imgDivs[0])
             }
         }
 
