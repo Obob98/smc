@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="search container">
         <div class="logo">
             <a href="<?php echo $baseURL ?>" class="h1 f-bold">
                 <img src="<?php echo $baseURL . 'assets/imgs/360_F_479093143_1ypd13XBPiPtBJcsprzEhhxflcfqEGna.jpg' ?>"

@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if ($searchInput) {
     try{
-      $sql = "SELECT * FROM users WHERE username LIKE '%$searchInput%'";
+      $sql = "SELECT * FROM articles WHERE title LIKE '%$searchInput%' OR tag LIKE '%$searchInput%'";
 
       $res = mysqli_query($conn, $sql);
 

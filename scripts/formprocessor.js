@@ -28,11 +28,20 @@ form.addEventListener('submit', e => {
                 searchResults.innerHTML = `<h3>showing results for:  ${searchValue}</h3>`
 
                 data.forEach(result => {
+                    const div = document.createElement('div');
+                    const a = document.createElement('a');
+                    div.classList.add('searchResult')
                     const li = document.createElement('li');
-                    li.textContent = result.username;
-                    searchResults.appendChild(li);
+                    a.textContent = result.title;
+                    a.href = `./article.php?title=${result.title}&tag=${result.tag}`;
+                    li.textContent = result.tag
+                    div.appendChild(a)
+                    div.appendChild(li)
+                    searchResults.appendChild(div);
                 });
-                form.reset();
+                form.reset()
+
+                e.target.children[0].value = searchValue
             }
             else {
                 searchResults.innerHTML = `<h3>found zero results for: ${searchValue}</h3>`

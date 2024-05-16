@@ -1,5 +1,12 @@
 <?php 
     include('./partials/header.php');
+
+    $sql = 'SELECT * FROM articles limit 3';
+
+    $query = mysqli_query($conn, $sql);
+    
+    $articles = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
  ?>
 
 <head>
@@ -44,7 +51,8 @@
                 </div>
                 <div class="floater">
                     <form action="">
-                        <input type="search" placeholder="Search" class="glass border-full">
+                        <input type="search" class="glass border-full"
+                            placeholder="enter a key word i.e tips or facebook e.t.c">
                         <div class="img"><img src="./assets/icons/search/711319.png" alt=""></div>
                     </form>
                     <a class="themes glass border-full">
@@ -485,63 +493,28 @@
                     Latest Articles
                 </div>
                 <div class="articles">
+                    <?php foreach($articles as $article): ?>
                     <div class="card glass ">
-                        <div class="img">
+                        <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>" class="img">
                             <img src="./assets/imgs/1671595495693.jpeg" alt="">
-                        </div>
+                        </a>
                         <div class="typography">
-                            <div class="blog-title">
-                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
+                            <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>" class="blog-title  ">
+                                <p class="f-bold text-ellipsis"><?php echo $article['title'] ?></p>
+                            </a>
                             <div class="additional-information">
-                                <p>
+                                <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>">
                                     <span>#</span>
-                                    Facebook
-                                </p>
-                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
+                                    <?php echo $article['tag'] ?>
+                                </a>
+
+                                <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>">
                                     <button class="btn glass">Read More</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="card glass">
-                        <div class="img">
-                            <img src="./assets/imgs/safe-data-sharing-practices-how-avoid-data-leaks.jpg" alt="">
-                        </div>
-                        <div class="typography">
-                            <div class="blog-title">
-                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
-                            <div class="additional-information">
-                                <p>
-                                    <span>#</span>
-                                    Twitter
-                                </p>
-                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
-                                    <button class="btn glass">Read More</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card glass">
-                        <div class="img">
-                            <img src="./assets/imgs/cyberbullying.png" alt="">
-                        </div>
-                        <div class="typography">
-                            <div class="blog-title">
-                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
-                            <div class="additional-information">
-                                <p>
-                                    <span>#</span>
-                                    Instagram
-                                </p>
-                                <a href="<?php echo $baseURL . 'article.php?title=' . 'sample'; ?>">
-                                    <button class="btn glass">Read More</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </section>

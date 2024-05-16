@@ -1,14 +1,30 @@
 <?php 
     include('./partials/header.php');
 
-    $username = $user['username'];
+    $username = $_SESSION['user']['username'];
 
-    $title = 'title unavailable';
-    $tag = 'tag unavailable';
+    $saved = false;
 
-    if(isset($_GET['title']) && isset($_GET['tag'])){
-        $title = $_GET['title'];
-        $tag = $_GET['tag'];
+    
+    if(isset($_GET['id'])){
+
+        $id = $_GET['id'];
+
+        $sql = "SELECT * FROM articles WHERE id='$id'";
+
+        $query = mysqli_query($conn, $sql);
+    
+        $article = mysqli_fetch_assoc($query);
+
+        $sql2 = "SELECT * FROM saved_articles WHERE article_id='$id' AND username='$username'";
+
+        $query2 = mysqli_query($conn, $sql2);
+    
+        $saved_article = mysqli_fetch_assoc($query2);
+
+        if($saved_article){
+            $saved = true;
+        }
     }
 
 
@@ -47,15 +63,20 @@
         <div class="profile-header">
             <div>
                 <div class="profile-info">
-                    <h2><?php echo $title?></h2>
+                    <h2><?php echo $article['title']?></h2>
                     <div class="followers">
-                        <small><?php echo '#' . $tag ?></small>
+                        <small><?php echo '#' . $article['tag'] ?></small>
                     </div>
                 </div>
             </div>
-            <button id="edit-account">
-                save
-            </button>
+            <?php
+            if($saved){
+                echo '<button id="' . $saved_article['id'] .'"class="btn-primary unsave">unsave</button>';
+            }
+            else{
+            echo '<button id="' . $article['id'] .'">save</button>';
+            }
+            ?>
         </div>
         <div class="profile-saved-items">
             <p>
@@ -79,5 +100,67 @@
         </div>
     </div>
 </body>
+
+<script>
+const button = document.querySelector('button')
+
+button.addEventListener('click', function() {
+    const id = this.id
+
+    const username =
+        '<?php echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : ''; ?>';
+
+    console.log({
+        id,
+        username
+    })
+
+    const formData = new FormData()
+
+    formData.append('id', id)
+
+    let url
+
+    console.log('classlist', this.classList, this.classList.contains('unsave'))
+
+    if (this.classList.contains('unsave')) {
+        url = './unsave-article.php'
+    } else {
+        url = './save-article.php'
+        formData.append('username', username)
+    }
+
+    console.log({
+        url
+    })
+
+    fetch(url, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+
+            console.log({
+                data
+            })
+
+            if (data.success) {
+                console.log({
+                    data
+                })
+                window.location.reload()
+            } else {
+                console.log('failed')
+            }
+
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+})
+</script>
 
 </html>

@@ -112,11 +112,11 @@ function positionNav(e) {
 
             fixedNav.style.display = 'flex'
 
-            themeDiv.removeChild(themes)
+            // themeDiv.removeChild(themes)
             // themeDiv.style.position = 'fixed'
 
             // fixedNav.children[0].insertBefore(themes, profile)
-            rightmost.insertBefore(themes, rightmost.children[0])
+            // rightmost.insertBefore(themes, rightmost.children[0])
 
         }
         checkHeader = false
@@ -124,8 +124,8 @@ function positionNav(e) {
         fixedNav.style.display = 'none'
 
         if (!checkHeader) {
-            rightmost.removeChild(themes)
-            themeDiv.appendChild(themes)
+            // rightmost.removeChild(themes)
+            // themeDiv.appendChild(themes)
         }
 
         checkHeader = true

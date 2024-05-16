@@ -591,10 +591,15 @@ main section.latest-articles .articles {
 
 main section.latest-articles .articles .card {
     min-width: 300px;
+    max-width: 500px;
     flex: 1;
     padding: 12px;
     border-radius: 32px;
     /* border: 1px solid var(--color-text-primary); */
+}
+
+main section.latest-articles .articles .card button{
+    color: var(--color-text-primary);
 }
 
 main section.latest-articles .articles .card.active {

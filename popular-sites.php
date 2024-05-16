@@ -1,11 +1,22 @@
 <?php
- include('./partials/header.php');
+    include('./partials/header.php');
 
- $sql = 'SELECT * FROM articles';
+    $username = $_SESSION['user']['username'];
+
+    $sql = 'SELECT * FROM articles';
 
     $query = mysqli_query($conn, $sql);
     
     $articles = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+    $sql2 = 'SELECT * FROM saved_articles';
+
+    $query2 = mysqli_query($conn, $sql2);
+    
+    $saved_articles = mysqli_fetch_all($query2, MYSQLI_ASSOC);
+
+    $saved = false;
+    $saved_article_id = '';
   ?>
 
 <head>
@@ -65,69 +76,116 @@
         <section class="latest-articles">
             <div class="container">
                 <form action="">
-                    <input type="search" name="search" id="" class="glass">
+                    <input type="search" name="search" id="search" placeholder="search articles" class="glass">
                 </form>
                 <div class="articles">
                     <?php foreach($articles as $article): ?>
                     <div class="card glass ">
-                        <a href="<?php echo $baseURL . 'article.php?title=' . $article['title'] . '&tag=' . $article['tag'] ?>"
-                            class="img">
+                        <a href="<?php echo $baseURL . 'article.php?id=' . $article['id'];?>" class="img">
                             <img src="./assets/imgs/1671595495693.jpeg" alt="">
                         </a>
                         <div class="typography">
-                            <a href="<?php echo $baseURL . 'article.php?title=' . $article['title'] . '&tag=' . $article['tag'] ?>"
-                                class="blog-title  ">
+                            <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>" class="blog-title  ">
                                 <p class="f-bold text-ellipsis"><?php echo $article['title'] ?></p>
                             </a>
                             <div class="additional-information">
-                                <a
-                                    href="<?php echo $baseURL . '$article.php?title=' . $article['title'] . 'tag=' . $article['tag'] ?>">
+                                <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>">
                                     <span>#</span>
                                     <?php echo $article['tag'] ?>
                                 </a>
-                                <button href="#" class="btn glass">save</button>
+
+                                <?php 
+                                    foreach($saved_articles as $saved_article) {  
+                                        if($article['id'] === $saved_article['article_id'] && in_array($username, $saved_article)) {
+                                        $saved = true; 
+                                        $saved_article_id = $saved_article['id'];
+                                        break; 
+                                    }else{
+                                            $saved = false; 
+                                        }
+                                    }
+
+                                    if($saved) {
+                                        echo '<button href="#" id="' . $saved_article_id . '" class="btn glass unsave btn-primary">unsave</button>';
+                                    } else {
+                                        echo '<button href="#" id="' . $article['id'] . '" class="btn glass">save</button>';
+                                    }
+                                ?>
+
                             </div>
                         </div>
                     </div>
                     <?php endforeach ?>
-
-                    <!-- <div class="card glass">
-                        <div class="img">
-                            <img src="./assets/imgs/safe-data-sharing-practices-how-avoid-data-leaks.jpg" alt="">
-                        </div>
-                        <div class="typography">
-                            <div class="blog-title">
-                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
-                            <div class="additional-information">
-                                <p>
-                                    <span>#</span>
-                                    Twitter
-                                </p>
-                                <button href="#" class="btn glass">save</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card glass">
-                        <div class="img">
-                            <img src="./assets/imgs/cyberbullying.png" alt="">
-                        </div>
-                        <div class="typography">
-                            <div class="blog-title">
-                                <p class="f-bold">Lorem ipsum dolor sit amet consectetur.</p>
-                            </div>
-                            <div class="additional-information">
-                                <p>
-                                    <span>#</span>
-                                    Instagram
-                                </p>
-                                <button href="#" class="btn glass">save</button>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
+
+        <script>
+        const articles = document.querySelectorAll('.articles > div')
+
+        articles.forEach(article => {
+            const button = article.querySelector('button')
+
+            button.addEventListener('click', function() {
+                const id = this.id
+
+                const username =
+                    '<?php echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : ''; ?>';
+
+                console.log({
+                    id,
+                    username
+                })
+
+                const formData = new FormData()
+
+                formData.append('id', id)
+
+                let url
+
+                console.log('classlist', this.classList, this.classList.contains('unsave'))
+
+                if (this.classList.contains('unsave')) {
+                    url = './unsave-article.php'
+                } else {
+                    url = './save-article.php'
+                    formData.append('username', username)
+                }
+
+                console.log({
+                    url
+                })
+
+                fetch(url, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(data => {
+
+                        console.log({
+                            data
+                        })
+
+                        if (data.success) {
+                            console.log({
+                                data
+                            })
+                            window.location.reload()
+                        } else {
+                            console.log('failed')
+                        }
+
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            })
+
+        })
+        </script>
     </main>
 
 

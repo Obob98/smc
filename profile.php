@@ -8,6 +8,16 @@
     $query = mysqli_query($conn, $sql);
 
     $info = mysqli_fetch_assoc($query);
+
+    $sql2 = "SELECT articles.*, saved_articles.id AS saved_article_id, saved_articles.username as username
+    FROM articles
+    INNER JOIN saved_articles ON articles.id = saved_articles.article_id
+    WHERE username = '$username'";
+
+    $query2 = mysqli_query($conn, $sql2);
+    
+    $articles = mysqli_fetch_all($query2, MYSQLI_ASSOC);
+
  ?>
 
 
@@ -20,6 +30,12 @@
     <link rel="stylesheet" href="./profile.css">
     <link rel="stylesheet" href="./editprofile.css">
     <link rel="stylesheet" href="./styles/main.css">
+
+    <link rel="stylesheet" href="./styles/about-us.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/utilities.css">
+    <link rel="stylesheet" href="./partials/extra-nav.css">
+    <link rel="stylesheet" href="./styles/articles.css">
 
     <script src='./scripts/formprocessor.js'></script>
 
@@ -59,18 +75,104 @@
                 edit account
             </button>
         </div>
-        <div class="profile-saved-items">
-            <div class="saved-item_card glass">
-                <img src="./assets/imgs/1671595495693.jpeg" alt="Saved Item 1">
-                <small>saved item title</small>
-                <button class="btn btn-primary unsave-btn">Unsave</button>
-            </div>
-            <div class="saved-item_card glass">
-                <img src="./assets/imgs/9a882aad67ae7150f1255d40968f6c74.png" alt="Saved Item 2">
-                <small>saved item title</small>
-                <button class="btn btn-primary unsave-btn">Unsave</button>
-            </div>
-        </div>
+
+        <main class="">
+            <section class="latest-articles">
+                <div class="container">
+                    <div class="articles">
+                        <?php foreach($articles as $article): ?>
+                        <div class="card glass ">
+                            <a href="<?php echo $baseURL . 'article.php?id=' . $article['id'];?>" class="img">
+                                <img src="./assets/imgs/1671595495693.jpeg" alt="">
+                            </a>
+                            <div class="typography">
+                                <a href="<?php echo $baseURL . 'article.php?id=' . $article['id']; ?>"
+                                    class="blog-title  ">
+                                    <p class="f-bold text-ellipsis"><?php echo $article['title'] ?></p>
+                                </a>
+                                <div class="additional-information">
+                                    <a href="<?php echo $baseURL . 'article.php?id=' . $article['id'];?>">
+                                        <span>#</span>
+                                        <?php echo $article['tag'] ?>
+                                    </a>
+
+                                    <button href="#" id="<?php echo $article['saved_article_id'] ?>"
+                                        class="btn glass unsave btn-primary">unsave</button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+            const articles = document.querySelectorAll('.articles > div')
+
+            articles.forEach(article => {
+                const button = article.querySelector('button')
+
+                button.addEventListener('click', function() {
+                    const id = this.id
+
+                    const username =
+                        '<?php echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : ''; ?>';
+
+                    console.log({
+                        id,
+                        username
+                    })
+
+                    const formData = new FormData()
+
+                    formData.append('id', id)
+
+                    let url
+
+                    console.log('classlist', this.classList, this.classList.contains('unsave'))
+
+                    if (this.classList.contains('unsave')) {
+                        url = './unsave-article.php'
+                    } else {
+                        url = './save-article.php'
+                        formData.append('username', username)
+                    }
+
+                    console.log({
+                        url
+                    })
+
+                    fetch(url, {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(data => {
+
+                            console.log({
+                                data
+                            })
+
+                            if (data.success) {
+                                console.log({
+                                    data
+                                })
+                                window.location.reload()
+                            } else {
+                                console.log('failed')
+                            }
+
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                })
+
+            })
+            </script>
+        </main>
     </div>
 </body>
 

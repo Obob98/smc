@@ -23,12 +23,13 @@ nav .logo {
 }
 
 .profile {
-    height: calc(100vh - 24px);
+    border-radius: 32px;
+    min-height: calc(100vh - 24px);
+    height: fit-content;
     max-width: 1120px;
     margin: 12px auto;
     /* background: #fff; */
     border: 1px solid #dbdbdb;
-    overflow: auto;
 }
 
 .profile-header {
@@ -114,4 +115,21 @@ nav .logo {
 
 .unsave-btn:hover {
     background-color: #c0392b;
+}
+
+
+.profile main{
+    width: 100% !important;
+    display: flex;
+    padding: 2vmax;
+}
+
+main section.latest-articles {
+    width: 100%;
+    padding-top: 0px !important;
+}
+
+.container .articles{
+    padding: 0;
+    margin: 0;
 }

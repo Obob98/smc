@@ -21,8 +21,8 @@ main section.latest-articles form{
 }
 
 main section.latest-articles form input{
-    width: 500px;
-    padding: 24px;
+    width: 500px !important;
+    padding: 24px !important;
     border: none;
     border-radius: 32px;
 }

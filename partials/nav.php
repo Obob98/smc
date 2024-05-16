@@ -56,6 +56,7 @@
         </div>
     </div>
 </nav>
+
 <nav class="fixed glass">
     <div class="container">
         <div class="logo">
@@ -89,7 +90,20 @@
             </li>
             <li><a href="/contact-us.html">contact</a></li>
         </ul>
+
         <div class="rightmost <?php if($user['username'])echo 'withdropdown' ?>">
+            <div class="floater">
+                <a class="themes glass border-full">
+                    <p class="">system</p>
+                    <button id="mode-toggle">
+                        <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.79289 8.20711C7.18342 8.59763 7.81658 8.59763 8.20711 8.20711L14.5711 1.84315C14.9616 1.45262 14.9616 0.819456 14.5711 0.428932C14.1805 0.0384076 13.5474 0.0384076 13.1569 0.428932L7.5 6.08579L1.84315 0.428932C1.45262 0.0384082 0.819456 0.0384082 0.428932 0.428932C0.0384076 0.819457 0.0384077 1.45262 0.428932 1.84315L6.79289 8.20711ZM6.5 6.5L6.5 7.5L8.5 7.5L8.5 6.5L6.5 6.5Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </a>
+            </div>
             <?php if($user['username']): ?>
             <div class="profile glass">
                 <?php if(strlen($user['profile_img']) > 2): ?>
